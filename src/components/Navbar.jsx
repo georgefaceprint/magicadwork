@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { ShoppingCart, Menu, X, Sun, Moon, Settings, Wrench, Package, Bell, BellOff, Download } from 'lucide-react';
+import { ShoppingCart, Menu, X, Sun, Moon, Settings, Wrench, Package, Bell, BellOff, Download, User } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
   const { cart, currency, setCurrency, theme, toggleTheme, deferredPrompt, installPwa, notificationsEnabled, requestNotificationPermission, currentUser, setAuthModalOpen, logout } = useApp();
@@ -278,24 +278,35 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
           <button 
             onClick={() => setAuthModalOpen(true)}
             style={{
-              background: 'linear-gradient(135deg, var(--cmyk-magenta) 0%, #db0066 100%)',
+              background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)',
               border: 'none',
-              borderRadius: 'var(--radius-sm)',
-              padding: '0 16px',
-              height: '38px',
+              borderRadius: 'var(--radius-full)',
+              padding: '0 24px',
+              height: '42px',
               display: 'flex',
               alignItems: 'center',
+              gap: '8px',
               color: '#fff',
-              fontWeight: '700',
-              fontSize: '0.85rem',
+              fontWeight: '800',
+              fontSize: '0.9rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
               cursor: 'pointer',
-              boxShadow: '0 2px 10px rgba(255, 0, 127, 0.2)',
-              transition: 'all var(--transition-fast)'
+              boxShadow: '0 4px 15px rgba(255, 0, 127, 0.4)',
+              transition: 'all 0.3s ease',
+              transform: 'scale(1)'
             }}
-            onMouseEnter={(e) => e.currentTarget.style.filter = 'brightness(1.1)'}
-            onMouseLeave={(e) => e.currentTarget.style.filter = 'none'}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 229, 255, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 0, 127, 0.4)';
+            }}
           >
-            Sign In
+            <User size={16} />
+            Login / Join
           </button>
         ) : (
           <div style={{ position: 'relative' }}>
