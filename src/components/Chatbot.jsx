@@ -78,6 +78,28 @@ export default function Chatbot() {
     "I need spare parts for my printer"
   ];
 
+  const renderTextWithLinks = (text) => {
+    if (!text) return null;
+    const parts = text.split(/(\[.*?\]\(.*?\))/g);
+    return parts.map((part, index) => {
+      const match = part.match(/\[(.*?)\]\((.*?)\)/);
+      if (match) {
+        return (
+          <a 
+            key={index} 
+            href={match[2]} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            style={{ color: 'var(--cmyk-cyan)', textDecoration: 'underline', fontWeight: 'bold' }}
+          >
+            {match[1]}
+          </a>
+        );
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
+
   return (
     <>
       {/* Floating Toggle Button */}
@@ -233,7 +255,7 @@ export default function Chatbot() {
                     fontSize: '0.9rem',
                     lineHeight: '1.5'
                   }}>
-                    {msg.text}
+                    {renderTextWithLinks(msg.text)}
                   </div>
                 </div>
               </div>
