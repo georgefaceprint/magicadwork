@@ -4,36 +4,36 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette - Soft Pastels based on Magic Adwork logo */
-  --cmyk-cyan: #7bcddb;
-  --cmyk-magenta: #e282a5;
-  --cmyk-yellow: #f4db82;
-  --cmyk-key: #1f222d;
+  /* Color Palette - Luminous digital-ink brand colors from Magic Adwork logo */
+  --cmyk-cyan: #00f0ff;
+  --cmyk-magenta: #ff007f;
+  --cmyk-yellow: #ffe600;
+  --cmyk-key: #030712;
   
-  /* Theme Colors (Soft Dark Slate/Lavender Gray) */
-  --bg-primary: #1f222d;
-  --bg-secondary: #282b3a;
-  --bg-tertiary: #313547;
-  --bg-glass: rgba(40, 43, 58, 0.75);
-  --bg-glass-hover: rgba(49, 53, 71, 0.85);
-  --bg-input: rgba(10, 12, 18, 0.35);
+  /* Theme Colors (Pitch Black & Rich Slate Navy) */
+  --bg-primary: #030712;
+  --bg-secondary: #0b0f19;
+  --bg-tertiary: #111827;
+  --bg-glass: rgba(11, 15, 25, 0.85);
+  --bg-glass-hover: rgba(17, 24, 39, 0.95);
+  --bg-input: rgba(3, 7, 18, 0.8);
   
-  --border-color: rgba(255, 255, 255, 0.07);
-  --border-color-glow: rgba(123, 205, 219, 0.25);
+  --border-color: rgba(255, 255, 255, 0.15);
+  --border-color-glow: rgba(0, 240, 255, 0.4);
   
-  --text-primary: #f3f4f6;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
+  --text-primary: #ffffff;
+  --text-secondary: #f3f4f6;
+  --text-muted: #9ca3af;
   
   --accent: var(--cmyk-magenta);
   --accent-secondary: var(--cmyk-cyan);
   
-  /* Shadow & Glows (Soften contrast) */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
-  --shadow-md: 0 8px 30px rgba(0,0,0,0.35);
-  --glow-cyan: 0 0 10px rgba(123, 205, 219, 0.2);
-  --glow-magenta: 0 0 10px rgba(226, 130, 165, 0.2);
-  --glow-yellow: 0 0 10px rgba(244, 219, 130, 0.15);
+  /* Shadow & Glows (Sleek and professional drop shadows) */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --glow-cyan: 0 0 15px rgba(0, 240, 255, 0.35);
+  --glow-magenta: 0 0 15px rgba(255, 0, 127, 0.35);
+  --glow-yellow: 0 0 15px rgba(255, 230, 0, 0.25);
   
   /* Fonts */
   --font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -56,22 +56,22 @@
 
 /* Light Theme Variables (Triggered via state class) */
 .light-theme {
-  --bg-primary: #f5f6f9;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #eef2f6;
-  --bg-glass: rgba(255, 255, 255, 0.82);
-  --bg-glass-hover: rgba(238, 242, 246, 0.92);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass-hover: rgba(241, 245, 249, 0.98);
   --bg-input: #ffffff;
   
-  --border-color: rgba(31, 34, 45, 0.07);
-  --border-color-glow: rgba(226, 130, 165, 0.18);
+  --border-color: rgba(15, 23, 42, 0.15);
+  --border-color-glow: rgba(255, 0, 127, 0.3);
   
-  --text-primary: #2d3240;
-  --text-secondary: #5c677d;
-  --text-muted: #8e9cb2;
+  --text-primary: #030712;
+  --text-secondary: #1f2937;
+  --text-muted: #4b5563;
   
-  --shadow-sm: 0 2px 8px rgba(31, 34, 45, 0.04);
-  --shadow-md: 0 8px 24px rgba(31, 34, 45, 0.06);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
 }
 
 /* Base Setup */
@@ -190,7 +190,7 @@ a {
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   border-color: var(--cmyk-cyan);
-  box-shadow: 0 0 0 2px rgba(123, 205, 219, 0.2);
+  box-shadow: 0 0 0 2px rgba(8, 145, 178, 0.20);
 }
 
 .form-label {
@@ -214,18 +214,18 @@ a {
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, var(--cmyk-magenta) 0%, #c4688b 100%);
+  background: linear-gradient(135deg, var(--cmyk-magenta) 0%, #be123c 100%);
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(226, 130, 165, 0.2);
+  box-shadow: 0 4px 14px rgba(219, 39, 119, 0.25);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(226, 130, 165, 0.3);
-  filter: brightness(1.05);
+  box-shadow: 0 6px 18px rgba(219, 39, 119, 0.35);
+  filter: brightness(1.1);
 }
 
 .btn-primary:active {
@@ -275,9 +275,9 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgba(15, 18, 25, 0.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(3, 7, 18, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Animations */

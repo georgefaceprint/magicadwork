@@ -5,6 +5,11 @@ import { Settings, Plus, Trash2, Image, ShieldAlert, Check, RefreshCw } from 'lu
 export default function AdminDashboard() {
   const { products, addProduct, formatPrice, usdToZarRate, forexLoading } = useApp();
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+
   const [formData, setFormData] = useState({
     name: '',
     category: 'Roland Spare Parts',
@@ -16,6 +21,16 @@ export default function AdminDashboard() {
   });
 
   const [imagePreview, setImagePreview] = useState(null);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (email === 'admin@magicadwork.co.za' && password === 'magic123') {
+      setIsAuthenticated(true);
+      setLoginError('');
+    } else {
+      setLoginError('Invalid email or password. Use the demo credentials below.');
+    }
+  };
   const [successMsg, setSuccessMsg] = useState('');
 
   // Handle image upload and conversion to Base64 data URL
@@ -87,6 +102,115 @@ export default function AdminDashboard() {
 
   // Filter products added by admin
   const adminProducts = products.filter(p => p.isAdminAdded);
+
+  if (!isAuthenticated) {
+    return (
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '60vh',
+        padding: '0 16px',
+        margin: '20px auto 40px auto'
+      }} className="animate-fade-in">
+        <div className="glass-panel" style={{
+          padding: '40px',
+          width: '100%',
+          maxWidth: '450px',
+          border: '1px solid var(--border-color)',
+          boxShadow: 'var(--shadow-md)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '24px',
+          backgroundColor: 'var(--bg-glass)'
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <h3 style={{
+              fontSize: '1.8rem',
+              fontWeight: '800',
+              background: 'linear-gradient(90deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              marginBottom: '8px'
+            }}>Admin Verification</h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              Authentication required to access the inventory manager.
+            </p>
+          </div>
+
+          {loginError && (
+            <div style={{
+              padding: '12px 16px',
+              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              border: '1px solid rgba(239, 68, 68, 0.3)',
+              borderRadius: 'var(--radius-sm)',
+              color: '#ef4444',
+              fontSize: '0.85rem',
+              fontWeight: '600'
+            }}>
+              {loginError}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div>
+              <label className="form-label">Email Address</label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="admin@magicadwork.co.za"
+                className="form-input"
+              />
+            </div>
+
+            <div>
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="form-input"
+              />
+            </div>
+
+            <button type="submit" className="btn-primary" style={{
+              background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, #00b8d4 100%)',
+              color: '#000',
+              fontWeight: '800',
+              boxShadow: '0 4px 15px rgba(0, 240, 255, 0.25)',
+              marginTop: '8px',
+              border: 'none',
+              borderRadius: 'var(--radius-sm)',
+              cursor: 'pointer',
+              height: '46px',
+              transition: 'all var(--transition-fast)'
+            }}>
+              Access Admin Panel
+            </button>
+          </form>
+
+          <div style={{
+            padding: '12px',
+            backgroundColor: 'rgba(255, 230, 0, 0.05)',
+            border: '1px solid rgba(255, 230, 0, 0.15)',
+            borderRadius: 'var(--radius-sm)',
+            fontSize: '0.8rem',
+            color: 'var(--text-secondary)',
+            textAlign: 'center',
+            lineHeight: '1.4'
+          }}>
+            <strong>Demo Credentials:</strong><br />
+            Email: <code style={{ color: 'var(--cmyk-cyan)', fontWeight: 'bold' }}>admin@magicadwork.co.za</code><br />
+            Password: <code style={{ color: 'var(--cmyk-cyan)', fontWeight: 'bold' }}>magic123</code>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ padding: '0 16px', margin: '20px auto 40px auto', width: '100%', maxWidth: '1100px' }} className="animate-fade-in">

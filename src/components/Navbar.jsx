@@ -54,7 +54,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
       </div>
 
       {/* Desktop Navigation Links */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '28px', '@media (max-width: 768px)': { display: 'none' } }} className="desktop-nav">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }} className="desktop-nav">
         <button 
           onClick={() => handleNavClick('catalog')} 
           style={{
