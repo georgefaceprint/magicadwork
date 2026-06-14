@@ -113,6 +113,12 @@ export const AppProvider = ({ children }) => {
   }, [cart]);
 
   const addToCart = (product, qty = 1) => {
+    // Require authentication before adding to cart
+    if (!currentUser) {
+      setAuthModalOpen(true);
+      return;
+    }
+
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.product.id === product.id);
       if (existing) {
