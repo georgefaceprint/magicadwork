@@ -94,6 +94,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
             Book Service
           </span>
         </button>
+        {currentUser?.email === 'tnklf@icloud.com' && (
         <button 
           onClick={() => handleNavClick('admin')} 
           style={{
@@ -113,6 +114,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
             Admin Portal
           </span>
         </button>
+        )}
       </div>
 
       {/* Action Controls (Currency, Theme, Cart) */}
@@ -488,6 +490,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
             <Wrench size={20} />
             Book Service
           </button>
+          {currentUser?.email === 'tnklf@icloud.com' && (
           <button 
             onClick={() => handleNavClick('admin')} 
             style={{
@@ -508,6 +511,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
             <Settings size={20} />
             Admin Dashboard
           </button>
+          )}
 
           {/* Mobile Notifications Trigger */}
           <button 
