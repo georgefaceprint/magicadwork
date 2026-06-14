@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Loader2, RefreshCw } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Loader2, RefreshCw, MessageCircle } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function Chatbot() {
@@ -130,22 +130,44 @@ export default function Chatbot() {
               <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: '800', color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tekle</h3>
               <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--cmyk-cyan)', fontWeight: '600' }}>AI Technician</p>
             </div>
-            <button 
-              onClick={() => { setMessages([initialMessage]); setInput(''); }}
-              title="Reset Conversation"
-              style={{
-                background: 'transparent',
-                border: 'none',
-                color: 'var(--text-muted)',
-                cursor: 'pointer',
-                padding: '4px',
-                transition: 'color var(--transition-fast)'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
-            >
-              <RefreshCw size={18} />
-            </button>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <a 
+                href="https://wa.me/27605889483?text=Hi%20Magic%20Adwork%2C%20I%20need%20some%20assistance!"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Talk to Human on WhatsApp"
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#25D366',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  transition: 'transform var(--transition-fast)',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                <MessageCircle size={18} />
+              </a>
+              <button 
+                onClick={() => { setMessages([initialMessage]); setInput(''); }}
+                title="Reset Conversation"
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: 'var(--text-muted)',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  transition: 'color var(--transition-fast)'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--text-primary)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}
+              >
+                <RefreshCw size={18} />
+              </button>
+            </div>
           </div>
 
           {/* Messages Area */}
