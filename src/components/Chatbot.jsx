@@ -83,24 +83,24 @@ export default function Chatbot() {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="cmyk-cyan-glow"
         style={{
           position: 'fixed',
           bottom: '24px',
           left: '24px',
-          width: '60px',
-          height: '60px',
-          backgroundColor: 'var(--bg-tertiary)',
-          border: '1px solid var(--cmyk-cyan)',
-          color: 'var(--cmyk-cyan)',
+          zIndex: 9999,
+          width: '70px',
+          height: '70px',
           borderRadius: '50%',
+          background: 'var(--cmyk-cyan)',
+          border: '2px solid rgba(0, 240, 255, 0.5)',
+          boxShadow: '0 8px 32px rgba(0, 240, 255, 0.4)',
+          cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 9999,
-          cursor: 'pointer',
-          boxShadow: 'var(--glow-cyan)',
-          transition: 'all var(--transition-fast)'
+          color: '#000',
+          transition: 'transform var(--transition-fast)',
+          padding: isOpen ? '0' : '3px'
         }}
         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -117,13 +117,17 @@ export default function Chatbot() {
             position: 'fixed',
             bottom: '100px',
             left: '24px',
-            width: '350px',
-            height: '500px',
-            maxWidth: 'calc(100vw - 48px)',
+            zIndex: 9999,
+            width: 'clamp(320px, 90vw, 420px)',
+            height: 'clamp(450px, 80vh, 650px)',
+            background: 'var(--bg-glass)',
+            backdropFilter: 'blur(16px)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '16px',
             display: 'flex',
             flexDirection: 'column',
-            zIndex: 9998,
-            overflow: 'hidden'
+            overflow: 'hidden',
+            boxShadow: '0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 240, 255, 0.1)'
           }}
         >
           {/* Header */}
