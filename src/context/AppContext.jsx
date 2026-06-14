@@ -32,6 +32,10 @@ export const JOHANNESBURG_SUBURBS = [
 ];
 
 export const AppProvider = ({ children }) => {
+  // --- Authentication State ---
+  const [currentUser, setCurrentUser] = useState(null);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
   // --- Inventory & Products state ---
   // Load custom admin products from localStorage
   const [customProducts, setCustomProducts] = useState(() => {
@@ -267,9 +271,7 @@ export const AppProvider = ({ children }) => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  // --- Authentication State & Handlers ---
-  const [currentUser, setCurrentUser] = useState(null);
-  const [authModalOpen, setAuthModalOpen] = useState(false);
+  // --- Authentication Handlers ---
 
   useEffect(() => {
     // Check for active sessions and set user

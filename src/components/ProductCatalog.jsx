@@ -313,6 +313,142 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
     );
   };
 
+  // Memoize the rendered product grid to prevent heavy recalculations
+  const renderedProducts = useMemo(() => {
+    return filteredProducts.map(product => (
+      <div 
+        key={product.id} 
+        className="glass-panel" 
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          overflow: 'hidden',
+          border: '1px solid var(--border-color)',
+          transition: 'transform var(--transition-normal), border-color var(--transition-normal)'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-4px)';
+          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'none';
+          e.currentTarget.style.borderColor = 'var(--border-color)';
+        }}
+      >
+        {/* Product Visual */}
+        {renderProductGraphic(product)}
+
+        {/* Product Info */}
+        <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: '1', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
+            <span style={{
+              fontSize: '0.75rem',
+              fontWeight: '700',
+              color: 'var(--text-muted)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}>
+              {product.subcategory || product.category}
+            </span>
+            {product.inStock ? (
+              <span style={{ fontSize: '0.7rem', color: '#10b981', display: 'inline-flex', alignItems: 'center', gap: '4px', fontWeight: '700' }}>
+                <Check size={10} strokeWidth={3} /> In Stock
+              </span>
+            ) : (
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: '700' }}>Out of Stock</span>
+            )}
+          </div>
+
+          <h3 style={{
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            lineHeight: '1.3',
+            height: '42px',
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: '2',
+            WebkitBoxOrient: 'vertical',
+            color: 'var(--text-primary)'
+          }} title={product.name}>
+            {product.name}
+          </h3>
+
+          <p style={{
+            fontSize: '0.85rem',
+            lineHeight: '1.4',
+            height: '36px',
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitLineClamp: '2',
+            WebkitBoxOrient: 'vertical',
+            color: 'var(--text-secondary)',
+            marginBottom: '10px'
+          }}>
+            {product.description}
+          </p>
+
+          {/* Price and Cart Call to Actions */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            marginTop: 'auto',
+            paddingTop: '12px',
+            borderTop: '1px solid var(--border-color)'
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--text-primary)' }}>
+                {formatPrice(product.priceZAR)}
+              </span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Excluding VAT</span>
+            </div>
+
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button
+                onClick={() => openDetails(product)}
+                style={{
+                  padding: '8px',
+                  background: 'var(--bg-tertiary)',
+                  border: '1px solid var(--border-color)',
+                  borderRadius: 'var(--radius-sm)',
+                  color: 'var(--text-secondary)',
+                  cursor: 'pointer',
+                  transition: 'all var(--transition-fast)'
+                }}
+                title="View Details"
+              >
+                <Eye size={16} />
+              </button>
+              <button
+                onClick={() => startTransition(() => addToCart(product, 1))}
+                style={{
+                  padding: '8px 12px',
+                  background: 'linear-gradient(135deg, var(--cmyk-magenta) 0%, #d40066 100%)',
+                  border: 'none',
+                  borderRadius: 'var(--radius-sm)',
+                  color: '#fff',
+                  fontWeight: '700',
+                  fontSize: '0.85rem',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  boxShadow: '0 2px 8px rgba(255,0,127,0.2)',
+                  transition: 'all var(--transition-fast)'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.filter = 'brightness(1.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.filter = 'none'}
+              >
+                <ShoppingBag size={14} /> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ));
+  }, [filteredProducts, formatPrice, addToCart, openDetails]);
+
   return (
     <div style={{ padding: '0 16px', margin: '20px auto 40px auto', width: '100%', maxWidth: '1200px' }}>
       
@@ -421,138 +557,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
         </div>
       ) : (
         <div className="grid-container animate-fade-in">
-          {useMemo(() => filteredProducts.map(product => (
-            <div 
-              key={product.id} 
-              className="glass-panel" 
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-                overflow: 'hidden',
-                border: '1px solid var(--border-color)',
-                transition: 'transform var(--transition-normal), border-color var(--transition-normal)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'none';
-                e.currentTarget.style.borderColor = 'var(--border-color)';
-              }}
-            >
-              {/* Product Visual */}
-              {renderProductGraphic(product)}
-
-              {/* Product Info */}
-              <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: '1', gap: '8px' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px' }}>
-                  <span style={{
-                    fontSize: '0.75rem',
-                    fontWeight: '700',
-                    color: 'var(--text-muted)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em'
-                  }}>
-                    {product.subcategory || product.category}
-                  </span>
-                  {product.inStock ? (
-                    <span style={{ fontSize: '0.7rem', color: '#10b981', display: 'inline-flex', alignItems: 'center', gap: '4px', fontWeight: '700' }}>
-                      <Check size={10} strokeWidth={3} /> In Stock
-                    </span>
-                  ) : (
-                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: '700' }}>Out of Stock</span>
-                  )}
-                </div>
-
-                <h3 style={{
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  lineHeight: '1.3',
-                  height: '42px',
-                  overflow: 'hidden',
-                  display: '-webkit-box',
-                  WebkitLineClamp: '2',
-                  WebkitBoxOrient: 'vertical',
-                  color: 'var(--text-primary)'
-                }} title={product.name}>
-                  {product.name}
-                </h3>
-
-                <p style={{
-                  fontSize: '0.85rem',
-                  lineHeight: '1.4',
-                  height: '36px',
-                  overflow: 'hidden',
-                  display: '-webkit-box',
-                  WebkitLineClamp: '2',
-                  WebkitBoxOrient: 'vertical',
-                  color: 'var(--text-secondary)',
-                  marginBottom: '10px'
-                }}>
-                  {product.description}
-                </p>
-
-                {/* Price and Cart Call to Actions */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  marginTop: 'auto',
-                  paddingTop: '12px',
-                  borderTop: '1px solid var(--border-color)'
-                }}>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--text-primary)' }}>
-                      {formatPrice(product.priceZAR)}
-                    </span>
-                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Excluding VAT</span>
-                  </div>
-
-                  <div style={{ display: 'flex', gap: '6px' }}>
-                    <button
-                      onClick={() => openDetails(product)}
-                      style={{
-                        padding: '8px',
-                        background: 'var(--bg-tertiary)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: 'var(--radius-sm)',
-                        color: 'var(--text-secondary)',
-                        cursor: 'pointer',
-                        transition: 'all var(--transition-fast)'
-                      }}
-                      title="View Details"
-                    >
-                      <Eye size={16} />
-                    </button>
-                    <button
-                      onClick={() => startTransition(() => addToCart(product, 1))}
-                      style={{
-                        padding: '8px 12px',
-                        background: 'linear-gradient(135deg, var(--cmyk-magenta) 0%, #d40066 100%)',
-                        border: 'none',
-                        borderRadius: 'var(--radius-sm)',
-                        color: '#fff',
-                        fontWeight: '700',
-                        fontSize: '0.85rem',
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        boxShadow: '0 2px 8px rgba(255,0,127,0.2)',
-                        transition: 'all var(--transition-fast)'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.filter = 'brightness(1.1)'}
-                      onMouseLeave={(e) => e.currentTarget.style.filter = 'none'}
-                    >
-                      <ShoppingBag size={14} /> Add
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )), [filteredProducts, formatPrice, addToCart, openDetails])}
+          {renderedProducts}
         </div>
       )}
 
