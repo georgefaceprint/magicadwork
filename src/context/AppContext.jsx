@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import initialInventory from '../data/inventory.json';
+import { supabase } from '../supabaseClient';
 
 const AppContext = createContext();
 
@@ -267,74 +268,85 @@ export const AppProvider = ({ children }) => {
   };
 
   // --- Authentication State & Handlers ---
-  const [currentUser, setCurrentUser] = useState(() => {
-    const saved = localStorage.getItem('magic_adwork_current_user');
-    return saved ? JSON.parse(saved) : null;
-  });
-
+  const [currentUser, setCurrentUser] = useState(null);
   const [authModalOpen, setAuthModalOpen] = useState(false);
 
-  // Simulated local database list of registered users
-  const [users, setUsers] = useState(() => {
-    const saved = localStorage.getItem('magic_adwork_users');
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  const signup = (email, password, name) => {
-    const trimmedEmail = email.trim().toLowerCase();
-    const existing = users.find(u => u.email === trimmedEmail);
-    if (existing) {
-      throw new Error('An account with this email already exists.');
-    }
-
-    const newUser = { email: trimmedEmail, password, name: name.trim() };
-    const updatedUsers = [...users, newUser];
-    setUsers(updatedUsers);
-    localStorage.setItem('magic_adwork_users', JSON.stringify(updatedUsers));
-    
-    // Auto-login
-    setCurrentUser(newUser);
-    localStorage.setItem('magic_adwork_current_user', JSON.stringify(newUser));
-    setAuthModalOpen(false);
-
-    sendNotification("Welcome to Magic Adwork!", `Account created successfully for ${newUser.name}.`);
-  };
-
-  const login = (email, password) => {
-    const trimmedEmail = email.trim().toLowerCase();
-    const user = users.find(u => u.email === trimmedEmail && u.password === password);
-    if (!user) {
-      throw new Error('Invalid email or password.');
-    }
-
-    setCurrentUser(user);
-    localStorage.setItem('magic_adwork_current_user', JSON.stringify(user));
-    setAuthModalOpen(false);
-    
-    sendNotification("Signed In", `Welcome back, ${user.name}!`);
-  };
-
-  const loginWithGoogle = () => {
-    // Simulate Google Sign-In with a mock user after 1s loading
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const googleUser = {
-          email: 'georgefaceprint@gmail.com',
-          name: 'George',
-          isGoogleUser: true
-        };
-        setCurrentUser(googleUser);
-        localStorage.setItem('magic_adwork_current_user', JSON.stringify(googleUser));
-        setAuthModalOpen(false);
-        sendNotification("Signed in with Google", `Welcome, ${googleUser.name}!`);
-        resolve(googleUser);
-      }, 1000);
+  useEffect(() => {
+    // Check for active sessions and set user
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      // Map user data to easily access name
+      if (session?.user) {
+        setCurrentUser({
+          ...session.user,
+          name: session.user.user_metadata?.name || session.user.email
+        });
+      } else {
+        setCurrentUser(null);
+      }
     });
+
+    // Listen for auth state changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setCurrentUser({
+          ...session.user,
+          name: session.user.user_metadata?.name || session.user.email
+        });
+      } else {
+        setCurrentUser(null);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const signup = async (email, password, name) => {
+    const trimmedEmail = email.trim().toLowerCase();
+    
+    const { data, error } = await supabase.auth.signUp({
+      email: trimmedEmail,
+      password,
+      options: {
+        data: {
+          name: name.trim()
+        }
+      }
+    });
+
+    if (error) throw error;
+    
+    setAuthModalOpen(false);
+    sendNotification("Welcome to Magic Adwork!", `Account created successfully.`);
   };
 
-  const logout = () => {
-    setCurrentUser(null);
-    localStorage.removeItem('magic_adwork_current_user');
+  const login = async (email, password) => {
+    const trimmedEmail = email.trim().toLowerCase();
+    
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: trimmedEmail,
+      password,
+    });
+
+    if (error) throw error;
+
+    setAuthModalOpen(false);
+    sendNotification("Signed In", `Welcome back!`);
+  };
+
+  const loginWithGoogle = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+    });
+    
+    if (error) throw error;
+  };
+
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Error signing out:', error);
+      return;
+    }
     sendNotification("Signed Out", "You have successfully signed out.");
   };
 
