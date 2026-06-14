@@ -98,7 +98,7 @@ export default function Chatbot() {
         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         aria-label="Open AI Assistant"
       >
-        {isOpen ? <X size={28} /> : <Bot size={28} />}
+        {isOpen ? <X size={28} /> : <img src="/tekle-avatar.png" alt="Tekle" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />}
       </button>
 
       {/* Chat Window */}
