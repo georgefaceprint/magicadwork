@@ -1,0 +1,1616 @@
+[
+  {
+    "id": "parts-1",
+    "name": "Roland DX4 Dampers Small",
+    "priceZAR": 298,
+    "description": "Compatible with: Roland. Category: Dampers",
+    "category": "Roland Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-2",
+    "name": "DX4 Dampers big roland with connector",
+    "priceZAR": 650,
+    "description": "Compatible with: Roland. Category: Dampers",
+    "category": "Roland Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-3",
+    "name": "Dx5 Dampers",
+    "priceZAR": 650,
+    "description": "Compatible with: Mimaki / Chinese. Category: Dampers",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-4",
+    "name": "Roland VS Dx6 Dampers",
+    "priceZAR": 550,
+    "description": "Compatible with: New Roland. Category: Dampers",
+    "category": "Roland Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-5",
+    "name": "Dx7 Dampers (DX7 original=R1200)",
+    "priceZAR": 1200,
+    "description": "Compatible with: Mimaki. Category: Dampers",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-6",
+    "name": "Chinas dampers small",
+    "priceZAR": 250,
+    "description": "Compatible with: China machine. Category: Dampers",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-7",
+    "name": "DX4 Chinas dampers Big",
+    "priceZAR": 250,
+    "description": "Compatible with: China machine. Category: Dampers",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-8",
+    "name": "DX5 Chinas dampers UV & no valve dampers",
+    "priceZAR": 650,
+    "description": "Compatible with: China machine. Category: Dampers",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-9",
+    "name": "Mimaki TS34 damper",
+    "priceZAR": 1895,
+    "description": "Compatible with: Mimaki. Category: Dampers",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Dampers",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-10",
+    "name": "DX4 wiper",
+    "priceZAR": 150,
+    "description": "Compatible with: black rubber. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Roland Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-11",
+    "name": "Mimaki / Roland DX5, Dx6, Dx7 wiper",
+    "priceZAR": 200,
+    "description": "Compatible with: black/Blue. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-12",
+    "name": "Cleaning stick small",
+    "priceZAR": 7,
+    "description": "Compatible with: green. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Roland Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-13",
+    "name": "Cleaning stick big",
+    "priceZAR": 30,
+    "description": "Compatible with: General wide format. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Roland Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-14",
+    "name": "Mimaki cjv30, jv33 cap pad",
+    "priceZAR": 150,
+    "description": "Compatible with: sponge. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-15",
+    "name": "Mimaki cjv150, jv150/300 cap pad DX7",
+    "priceZAR": 180,
+    "description": "Compatible with: sponge. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-16",
+    "name": "Mimaki /Roland dx5/Dx6/Dx7 cap",
+    "priceZAR": 750,
+    "description": "Compatible with: All types. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-17",
+    "name": "Roland DX4 cap top (original)",
+    "priceZAR": 650,
+    "description": "Compatible with: Roland original. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Roland Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-18",
+    "name": "Mimaki Joint valve Jv5",
+    "priceZAR": 850,
+    "description": "Compatible with: Mimaki. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-19",
+    "name": "Mimaki Ts100,jv100 cap",
+    "priceZAR": 1895,
+    "description": "Compatible with: mimaki. Category: Wiper, cap/ cleaning stick & sponges",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Wiper, cap/ cleaning stick & sponges",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-20",
+    "name": "Mimaki vinyl cuter 30d",
+    "priceZAR": 250,
+    "description": "Compatible with: blue 30d. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-21",
+    "name": "Mimaki vinyl cuter 45d",
+    "priceZAR": 250,
+    "description": "Compatible with: red 45d. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-22",
+    "name": "Mimaki vinyl cuter 60d",
+    "priceZAR": 250,
+    "description": "Compatible with: yellow 60d. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-23",
+    "name": "Mimaki SPB blade original",
+    "priceZAR": 650,
+    "description": "Compatible with: Original red. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-24",
+    "name": "Roland Vinyl cutter 60d",
+    "priceZAR": 250,
+    "description": "Compatible with: yellow 60d. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-25",
+    "name": "Roland Vinyl cutter 45d",
+    "priceZAR": 250,
+    "description": "Compatible with: red 45d. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-26",
+    "name": "Roland Vinyl cutter 30d",
+    "priceZAR": 250,
+    "description": "Compatible with: blue 30d. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-27",
+    "name": "Roland/Mimaki blade holder",
+    "priceZAR": 850,
+    "description": "Compatible with: General wide format. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-28",
+    "name": "Chinese Blade Holder",
+    "priceZAR": 650,
+    "description": "Compatible with: General wide format. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-29",
+    "name": "Mimaki sheet cut blade (Media)",
+    "priceZAR": 870,
+    "description": "Compatible with: General wide format. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-30",
+    "name": "Roland sheet cutter",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-31",
+    "name": "Mimaki cutting strip 1600mm",
+    "priceZAR": 1200,
+    "description": "Compatible with: Mimaki. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-32",
+    "name": "Roland Roller complete",
+    "priceZAR": 1200,
+    "description": "Compatible with: original. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-33",
+    "name": "Roland pinch roller normal",
+    "priceZAR": 600,
+    "description": "Compatible with: original. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-34",
+    "name": "Roland pinch roller left/right",
+    "priceZAR": 600,
+    "description": "Compatible with: conical. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-35",
+    "name": "Mimaki pinch roller",
+    "priceZAR": 600,
+    "description": "Compatible with: black. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-38",
+    "name": "Roland head cable (Dx4 head cable) 21P1 35cm & 40cm",
+    "priceZAR": 275,
+    "description": "Compatible with: Roland / CJ-540. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-39",
+    "name": "Roland Cable card 15p1 Roland",
+    "priceZAR": 1200,
+    "description": "Compatible with: VP-540/sp/vs. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-40",
+    "name": "Cable card Mimaki cjv30",
+    "priceZAR": 1200,
+    "description": "Compatible with: Mimaki. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-41",
+    "name": "XP600 data cable split cable",
+    "priceZAR": 200,
+    "description": "Compatible with: China machine. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-42",
+    "name": "Dx7/Dx6 head cable",
+    "priceZAR": 250,
+    "description": "Compatible with: Mimaki/Roland. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-43",
+    "name": "Dx5 head cable pair",
+    "priceZAR": 750,
+    "description": "Compatible with: Mimaki. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-44",
+    "name": "CJV150-160 long cable",
+    "priceZAR": 3500,
+    "description": "Compatible with: 4 cables together. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-45",
+    "name": "Mimaki JV150 160 Optic cable with coil",
+    "priceZAR": 3500,
+    "description": "Compatible with: Cjv300,Jv300 160 EPL3. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-46",
+    "name": "Mimaki Faerie coil",
+    "priceZAR": 850,
+    "description": "Compatible with: Faerie coil. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-47",
+    "name": "Roland Long cable 36pin 3200mm",
+    "priceZAR": 1250,
+    "description": "Compatible with: General wide format. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-48",
+    "name": "Roland media clamp/clip",
+    "priceZAR": 250,
+    "description": "Compatible with: white. Category: Blades",
+    "category": "Roland Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-49",
+    "name": "Mimaki media holder / clamp Cjv150,Jv150",
+    "priceZAR": 650,
+    "description": "Compatible with: Cjv300,Jv300. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-50",
+    "name": "Mimaki wiper/ Media sensor cjv150",
+    "priceZAR": 850,
+    "description": "Compatible with: cjv150/300. Category: Blades",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Blades",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-53",
+    "name": "Mimaki pump",
+    "priceZAR": 1500,
+    "description": "Compatible with: General wide format. Category: Pumps",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Pumps",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-54",
+    "name": "Roland pump",
+    "priceZAR": 1500,
+    "description": "Compatible with: General wide format. Category: Pumps",
+    "category": "Roland Spare Parts",
+    "subcategory": "Pumps",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-55",
+    "name": "Chanese machine pump",
+    "priceZAR": 850,
+    "description": "Compatible with: General wide format. Category: Pumps",
+    "category": "Roland Spare Parts",
+    "subcategory": "Pumps",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-58",
+    "name": "Nubis 2 colour steel bin",
+    "priceZAR": 850,
+    "description": "Compatible with: complete. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-59",
+    "name": "Nubis cartridges kit",
+    "priceZAR": 850,
+    "description": "Compatible with: with tubes black. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-60",
+    "name": "Nubis Y connector splitter",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-61",
+    "name": "Refillable cartridges big funnel",
+    "priceZAR": 500,
+    "description": "Compatible with: clear. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-62",
+    "name": "Middle Cart. With Flouting & bottles on top",
+    "priceZAR": 6000,
+    "description": "Compatible with: with tubes clear. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-63",
+    "name": "Middle cart./pouches/with tube&Needle",
+    "priceZAR": 1043,
+    "description": "Compatible with: clear. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-64",
+    "name": "Top fill cartridges (Vertical refillable cartridge)",
+    "priceZAR": 850,
+    "description": "Compatible with: clear. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-65",
+    "name": "Nubis Valve",
+    "priceZAR": 650,
+    "description": "Compatible with: used. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-66",
+    "name": "floating cartridges",
+    "priceZAR": 1200,
+    "description": "Compatible with: with tubes clear. Category: Cartridges/ Ink systems",
+    "category": "Roland Spare Parts",
+    "subcategory": "Cartridges/ Ink systems",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-68",
+    "name": "3.15A SMd fuse",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: Fuse & Mother board",
+    "category": "Roland Spare Parts",
+    "subcategory": "Fuse & Mother board",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-69",
+    "name": "4A SMd fuse",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: Fuse & Mother board",
+    "category": "Roland Spare Parts",
+    "subcategory": "Fuse & Mother board",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-70",
+    "name": "3.75A SMd fuse",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: Fuse & Mother board",
+    "category": "Roland Spare Parts",
+    "subcategory": "Fuse & Mother board",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-71",
+    "name": "6A SMd fuse",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: Fuse & Mother board",
+    "category": "Roland Spare Parts",
+    "subcategory": "Fuse & Mother board",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-72",
+    "name": "cjv30 Mother board BS",
+    "priceZAR": 20000,
+    "description": "Compatible with: BS board. Category: Fuse & Mother board",
+    "category": "Roland Spare Parts",
+    "subcategory": "Fuse & Mother board",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-73",
+    "name": "Mimaki cjv150 Cable connecting board",
+    "priceZAR": 900,
+    "description": "Compatible with: EPL3 convertion. Category: Fuse & Mother board",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Fuse & Mother board",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-74",
+    "name": "Mimaki photo interrupter",
+    "priceZAR": 850,
+    "description": "Compatible with: original. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-75",
+    "name": "Encoder strip Roland/Mimaki 5000mm",
+    "priceZAR": 1100,
+    "description": "Compatible with: 180,15mm. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-76",
+    "name": "Mimaki Encoder sensor / board",
+    "priceZAR": 900,
+    "description": "Compatible with: original. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-77",
+    "name": "Encoder sensor Roland",
+    "priceZAR": 800,
+    "description": "Compatible with: original. Category: Encoder strips/ sensorsBearing",
+    "category": "Roland Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-78",
+    "name": "Encoder strip 3000mm",
+    "priceZAR": 850,
+    "description": "Compatible with: 180,15mm. Category: Encoder strips/ sensorsBearing",
+    "category": "Roland Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-79",
+    "name": "Mimaki Linear bearing jv150,cjv150",
+    "priceZAR": 2600,
+    "description": "Compatible with: General wide format. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-80",
+    "name": "Mimaki Left&right bearing cjv150 (Flying Pulley)",
+    "priceZAR": 1700,
+    "description": "Compatible with: jv150,cjv150. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-81",
+    "name": "Mimaki Left&right bearing cjv30",
+    "priceZAR": 1700,
+    "description": "Compatible with: set. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-82",
+    "name": "Mimaki orignal encoder strip",
+    "priceZAR": 1270,
+    "description": "Compatible with: original. Category: Encoder strips/ sensorsBearing",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Encoder strips/ sensorsBearing",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-83",
+    "name": "Mimaki BS3 C",
+    "priceZAR": 650,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-84",
+    "name": "Mimaki BS3 M",
+    "priceZAR": 650,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-85",
+    "name": "Mimaki BS3 Y",
+    "priceZAR": 650,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-86",
+    "name": "Mimaki BS3 K",
+    "priceZAR": 650,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-87",
+    "name": "Mimaki SS21 C",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-88",
+    "name": "Mimaki SS21 M",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-89",
+    "name": "Mimaki SS21 Y",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-90",
+    "name": "Mimaki SS21 K",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-91",
+    "name": "Mimaki SB53 C",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-92",
+    "name": "Mimaki SB53 M",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-93",
+    "name": "Mimaki SB53 Y",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-94",
+    "name": "Mimaki SB53 K",
+    "priceZAR": 750,
+    "description": "Compatible with: Red. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-95",
+    "name": "Mimaki  SWJ CS100  C",
+    "priceZAR": 100,
+    "description": "Compatible with: green. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-96",
+    "name": "Mimaki  SWJ CS100  M",
+    "priceZAR": 100,
+    "description": "Compatible with: green. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-97",
+    "name": "Mimaki  SWJ CS100  Y",
+    "priceZAR": 100,
+    "description": "Compatible with: green. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-98",
+    "name": "Mimaki  SWJ CS100  K",
+    "priceZAR": 100,
+    "description": "Compatible with: green. Category: Chips",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "Chips",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-101",
+    "name": "Roland pad and mimaki spring",
+    "priceZAR": 0,
+    "description": "Compatible with: General wide format. Category: others",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-102",
+    "name": "Roland cutting stip",
+    "priceZAR": 500,
+    "description": "Compatible with: different type. Category: others",
+    "category": "Roland Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-103",
+    "name": "cables",
+    "priceZAR": 0,
+    "description": "Compatible with: General wide format. Category: others",
+    "category": "Roland Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-104",
+    "name": "fuse",
+    "priceZAR": 150,
+    "description": "Compatible with: different type. Category: others",
+    "category": "Roland Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-105",
+    "name": "different sensors",
+    "priceZAR": 0,
+    "description": "Compatible with: General wide format. Category: others",
+    "category": "Roland Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-106",
+    "name": "Wiper Chinas machine",
+    "priceZAR": 150,
+    "description": "Compatible with: General wide format. Category: others",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-107",
+    "name": "Roland pad cutter VP-540",
+    "priceZAR": 1200,
+    "description": "Compatible with: original. Category: others",
+    "category": "Roland Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-108",
+    "name": "CJV150 FFC cutter cable 20p",
+    "priceZAR": 890,
+    "description": "Compatible with: General wide format. Category: others",
+    "category": "Roland Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-109",
+    "name": "Optic cable for EPL2",
+    "priceZAR": 3500,
+    "description": "Compatible with: Mimaki. Category: others",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-110",
+    "name": "Mimaki FX II vinyl cutter cable",
+    "priceZAR": 1200,
+    "description": "Compatible with: Mimaki. Category: others",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "parts-111",
+    "name": "Mimaki CJV150-160 long belt",
+    "priceZAR": 2000,
+    "description": "Compatible with: Mimaki. Category: others",
+    "category": "Mimaki Spare Parts",
+    "subcategory": "others",
+    "inStock": true,
+    "weightKg": 0.1
+  },
+  {
+    "id": "ink-1",
+    "name": "D10-GF-MS21 2000ml C NUbIS",
+    "priceZAR": 1768,
+    "description": "Code: F623.1233. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-2",
+    "name": "D10-GF-MS21 2000ml M NUbIS",
+    "priceZAR": 1768,
+    "description": "Code: F623.1234. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-3",
+    "name": "D10-GF-MS21 2000ml Y NUbIS",
+    "priceZAR": 1768,
+    "description": "Code: F623.1235. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-4",
+    "name": "D10-GF-MS21 2000ml K NUbIS",
+    "priceZAR": 1768,
+    "description": "Code: F623.1236. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-5",
+    "name": "D10-GF-MS21 1000ml C NUbIS",
+    "priceZAR": 926,
+    "description": "Code: F623.1290. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-6",
+    "name": "D10-GF-MS21 1000ml M NUbIS",
+    "priceZAR": 926,
+    "description": "Code: F623.1291. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-7",
+    "name": "D10-GF-MS21 1000ml Y NUbIS",
+    "priceZAR": 926,
+    "description": "Code: F623.1292. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-8",
+    "name": "D10-GF-MS21 1000ml K NUbIS",
+    "priceZAR": 926,
+    "description": "Code: F623.1293. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-9",
+    "name": "D10-esm 1000ml C",
+    "priceZAR": 884,
+    "description": "Code: F621.1758. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-10",
+    "name": "D10-esm 1000ml M",
+    "priceZAR": 884,
+    "description": "Code: F621.1759. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-11",
+    "name": "D10-esm 1000ml Y",
+    "priceZAR": 884,
+    "description": "Code: F621.1760. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-12",
+    "name": "D10-esm 1000ml K",
+    "priceZAR": 884,
+    "description": "Code: F621.1761. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-13",
+    "name": "D10-esm 1000ml Lc",
+    "priceZAR": 884,
+    "description": "Code: F621.1762. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-14",
+    "name": "D10-esm 1000ml Lm",
+    "priceZAR": 884,
+    "description": "Code: F621.1763. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-15",
+    "name": "D10-GF-MS21 1000ml C",
+    "priceZAR": 905,
+    "description": "Code: F621.1858. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-16",
+    "name": "D10-GF-MS21 1000ml M",
+    "priceZAR": 905,
+    "description": "Code: F621.1859. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-17",
+    "name": "D10-GF-MS21 1000ml Y",
+    "priceZAR": 905,
+    "description": "Code: F621.1860. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-18",
+    "name": "D10-GF-MS21 1000ml K",
+    "priceZAR": 905,
+    "description": "Code: F621.1861. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-19",
+    "name": "AQ-10-DST-HC 1000ML C",
+    "priceZAR": 905,
+    "description": "Code: F661.1137. High-quality printer ink. Formula: Sublimation Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Sublimation Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-20",
+    "name": "AQ-10-DST-HC 1000ML M",
+    "priceZAR": 905,
+    "description": "Code: F661.1138. High-quality printer ink. Formula: Sublimation Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Sublimation Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-21",
+    "name": "AQ-10-DST-HC 1000ML Y",
+    "priceZAR": 905,
+    "description": "Code: F661.1139. High-quality printer ink. Formula: Sublimation Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Sublimation Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-22",
+    "name": "AQ-10-DST-HC 1000ML K",
+    "priceZAR": 905,
+    "description": "Code: F661.1140. High-quality printer ink. Formula: Sublimation Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Sublimation Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-23",
+    "name": "D10-GF-MS21 2000ml C w/out chips",
+    "priceZAR": 1768,
+    "description": "Code: F623.1239. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-24",
+    "name": "D10-GF-MS21 2000ml M w/out chips",
+    "priceZAR": 1768,
+    "description": "Code: F623.1240. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-25",
+    "name": "D10-GF-MS21 2000ml Y w/out chips",
+    "priceZAR": 1768,
+    "description": "Code: F623.1241. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-26",
+    "name": "D10-GF-MS21 2000ml K w/out chips",
+    "priceZAR": 1768,
+    "description": "Code: F623.1242. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-27",
+    "name": "CLEANING SOLUTION - MF 1000ml",
+    "priceZAR": 572,
+    "description": "Code: F611.1001. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-28",
+    "name": "CLEANING SOLUTION - MF 440ml",
+    "priceZAR": 572,
+    "description": "Code: F612.1001. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-29",
+    "name": "AQF CLEANING SOLUTION 1000ml",
+    "priceZAR": 572,
+    "description": "Code: F611.1078. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-30",
+    "name": "CMF CLEANING SOLUTION 1000ml",
+    "priceZAR": 884,
+    "description": "Code: F611.1085. High-quality printer ink. Formula: Eco Solvent Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Eco Solvent Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "ink-31",
+    "name": "Topaz T15 RG 2L BOTTLES w/chips C",
+    "priceZAR": 1410,
+    "description": "Code: F621.1524. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-32",
+    "name": "Topaz T15 RG 2L BOTTLES w/chips M",
+    "priceZAR": 1410,
+    "description": "Code: F621.1525. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-33",
+    "name": "Topaz T15 RG 2L BOTTLES w/chips Y",
+    "priceZAR": 1410,
+    "description": "Code: F621.1526. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-34",
+    "name": "Topaz T15 RG 2L BOTTLES w/chips K",
+    "priceZAR": 1410,
+    "description": "Code: F621.1527. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-35",
+    "name": "Ruby R10-RTR 1L Bottles C",
+    "priceZAR": 985,
+    "description": "Code: F641.2867. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-36",
+    "name": "Ruby R10-RTR 1L Bottles M",
+    "priceZAR": 985,
+    "description": "Code: F641.2868. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-37",
+    "name": "Ruby R10-RTR 1L Bottles Y",
+    "priceZAR": 985,
+    "description": "Code: F641.2869. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-38",
+    "name": "Ruby R10-RTR 1L Bottles K",
+    "priceZAR": 985,
+    "description": "Code: F641.2870. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-39",
+    "name": "Amethyst A20 RTR 1L C Bottle UV",
+    "priceZAR": 1225,
+    "description": "Code: F641.2038. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-40",
+    "name": "Amethyst A20 RTR 1L M Bottle UV",
+    "priceZAR": 1225,
+    "description": "Code: F641.2039. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-41",
+    "name": "Amethyst A20 RTR 1L Y Bottle UV",
+    "priceZAR": 1225,
+    "description": "Code: F641.2040. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-42",
+    "name": "Amethyst A20 RTR 1L CKBottle UV",
+    "priceZAR": 1225,
+    "description": "Code: F641.2041. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-43",
+    "name": "D10-GF-CS25 1L Bottles w/chip C",
+    "priceZAR": 988,
+    "description": "Code: F621.1955. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-44",
+    "name": "D10-GF-CS25 1L Bottles w/chip M",
+    "priceZAR": 988,
+    "description": "Code: F621.1956. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-45",
+    "name": "D10-GF-CS25 1L Bottles w/chip Y",
+    "priceZAR": 988,
+    "description": "Code: F621.1957. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "ink-46",
+    "name": "D10-GF-CS25 1L Bottles w/chip K",
+    "priceZAR": 988,
+    "description": "Code: F621.1958. High-quality printer ink. Formula: Mimaki Swj Inks",
+    "category": "Inks & Powders",
+    "subcategory": "Mimaki Swj Inks",
+    "inStock": true,
+    "weightKg": 2.1
+  },
+  {
+    "id": "seed-ink-1",
+    "name": "Magic Dye Solvent 1000ml Cyan Ink",
+    "priceZAR": 850,
+    "description": "Premium dye-based solvent ink with ultra-vibrant colors and wide gamut. Specially formulated for high-end graphic applications.",
+    "category": "Inks & Powders",
+    "subcategory": "Dye Solvent",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-2",
+    "name": "Magic Dye Solvent 1000ml Magenta Ink",
+    "priceZAR": 850,
+    "description": "Premium dye-based solvent ink with ultra-vibrant colors and wide gamut. Specially formulated for high-end graphic applications.",
+    "category": "Inks & Powders",
+    "subcategory": "Dye Solvent",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-3",
+    "name": "Magic Dye Solvent 1000ml Yellow Ink",
+    "priceZAR": 850,
+    "description": "Premium dye-based solvent ink with ultra-vibrant colors and wide gamut. Specially formulated for high-end graphic applications.",
+    "category": "Inks & Powders",
+    "subcategory": "Dye Solvent",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-4",
+    "name": "Magic Dye Solvent 1000ml Black Ink",
+    "priceZAR": 850,
+    "description": "Premium dye-based solvent ink with ultra-vibrant colors and wide gamut. Specially formulated for high-end graphic applications.",
+    "category": "Inks & Powders",
+    "subcategory": "Dye Solvent",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-5",
+    "name": "NUtec Ruby R10-RTR 1000ml Cyan UV Ink",
+    "priceZAR": 1950,
+    "description": "Certified premium roll-to-roll UV ink from NUtec. Cures with LED and conventional UV lamps. High density color for flexible medias.",
+    "category": "Inks & Powders",
+    "subcategory": "NUtec UV Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-6",
+    "name": "NUtec Ruby R10-RTR 1000ml Magenta UV Ink",
+    "priceZAR": 1950,
+    "description": "Certified premium roll-to-roll UV ink from NUtec. Cures with LED and conventional UV lamps. High density color for flexible medias.",
+    "category": "Inks & Powders",
+    "subcategory": "NUtec UV Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-7",
+    "name": "NUtec Ruby R10-RTR 1000ml Yellow UV Ink",
+    "priceZAR": 1950,
+    "description": "Certified premium roll-to-roll UV ink from NUtec. Cures with LED and conventional UV lamps. High density color for flexible medias.",
+    "category": "Inks & Powders",
+    "subcategory": "NUtec UV Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-8",
+    "name": "NUtec Ruby R10-RTR 1000ml Black UV Ink",
+    "priceZAR": 1950,
+    "description": "Certified premium roll-to-roll UV ink from NUtec. Cures with LED and conventional UV lamps. High density color for flexible medias.",
+    "category": "Inks & Powders",
+    "subcategory": "NUtec UV Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "seed-ink-9",
+    "name": "NUtec Ruby R10-RTR 1000ml White UV Ink",
+    "priceZAR": 2450,
+    "description": "High-opacity white UV ink from NUtec. Perfect for base layers on transparent or dark substrates.",
+    "category": "Inks & Powders",
+    "subcategory": "NUtec UV Inks",
+    "inStock": true,
+    "weightKg": 1.1
+  },
+  {
+    "id": "machine-1",
+    "name": "Roland VersaSTUDIO BN2-20A Desktop Printer Cutter",
+    "priceZAR": 135000,
+    "description": "Professional print quality and legendary Roland DG reliability in a compact, affordable desktop package. Prints and contour cuts stickers, decals, heat transfers, and custom graphics.",
+    "category": "Machines & Equipment",
+    "subcategory": "Roland Printers",
+    "image": "https://www.signmaster.co.uk/cdn/shop/files/Roland_BN2-20_Series_-_signmastersystems-1878773.jpg",
+    "inStock": true,
+    "weightKg": 65
+  },
+  {
+    "id": "machine-2",
+    "name": "Mimaki UJV100-160 Plus Wide Format UV Printer",
+    "priceZAR": 265000,
+    "description": "High-quality entry-level roll-to-roll UV LED printer. Features instant ink curing, printing speeds up to 23m²/h, and three-layer printing for transparent or dark films.",
+    "category": "Machines & Equipment",
+    "subcategory": "Mimaki Printers",
+    "image": "https://www.signmaster.co.uk/cdn/shop/files/Mimaki_UJV100-160_Plus_-_signmastersystems-1878357.jpg",
+    "inStock": true,
+    "weightKg": 180
+  },
+  {
+    "id": "machine-3",
+    "name": "Roland VersaSTUDIO BN2-30 Wide Format Print & Cut",
+    "priceZAR": 195000,
+    "description": "Next-generation 30-inch desktop printer/cutter offering significantly faster print speeds, automated features, and print & cut capability for professional signmakers.",
+    "category": "Machines & Equipment",
+    "subcategory": "Roland Printers",
+    "image": "https://www.signmaster.co.uk/cdn/shop/files/Roland_BN2-30_Printer_Signmaster_Systems.webp",
+    "inStock": true,
+    "weightKg": 85
+  },
+  {
+    "id": "machine-4",
+    "name": "Mimaki CJV200-130 Wide Format Print & Cut",
+    "priceZAR": 220000,
+    "description": "High-performance eco-solvent print & cut system with Epson printheads. Superb image quality, versatile printing capabilities, and highly accurate contour cutting.",
+    "category": "Machines & Equipment",
+    "subcategory": "Mimaki Printers",
+    "image": "https://www.signmaster.co.uk/cdn/shop/files/Mimaki_CJV200-130_square.webp_1.webp",
+    "inStock": true,
+    "weightKg": 150
+  }
+]

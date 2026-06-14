@@ -1,0 +1,434 @@
+import React, { useState } from 'react';
+import { useApp } from '../context/AppContext';
+import { ShoppingCart, Menu, X, Sun, Moon, Settings, Wrench, Package, Bell, BellOff, Download } from 'lucide-react';
+
+export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
+  const { cart, currency, setCurrency, theme, toggleTheme, deferredPrompt, installPwa, notificationsEnabled, requestNotificationPermission } = useApp();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const cartItemsCount = cart.reduce((total, item) => total + item.qty, 0);
+
+  const handleNavClick = (tabId) => {
+    setActiveTab(tabId);
+    setMobileMenuOpen(false);
+  };
+
+  return (
+    <nav className="glass-panel" style={{
+      position: 'sticky',
+      top: '0',
+      zIndex: '1000',
+      margin: '12px 16px',
+      borderRadius: 'var(--radius-sm)',
+      border: '1px solid var(--border-color)',
+      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.25)',
+      backdropFilter: 'blur(20px)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '12px 24px'
+    }}>
+      {/* Brand Logo */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={() => handleNavClick('catalog')}>
+        <div style={{
+          display: 'flex',
+          fontWeight: '800',
+          fontSize: '1.4rem',
+          letterSpacing: '-0.05em',
+          textTransform: 'uppercase'
+        }}>
+          <span style={{ color: 'var(--cmyk-cyan)' }}>M</span>
+          <span style={{ color: 'var(--cmyk-magenta)' }}>A</span>
+          <span style={{ color: 'var(--cmyk-yellow)' }}>G</span>
+          <span style={{ color: 'var(--text-primary)' }}>IC</span>
+          <span style={{ 
+            marginLeft: '6px',
+            padding: '2px 6px',
+            backgroundColor: 'var(--text-primary)',
+            color: 'var(--bg-primary)',
+            borderRadius: '4px',
+            fontSize: '1.1rem',
+            alignSelf: 'center'
+          }}>ADWORK</span>
+        </div>
+      </div>
+
+      {/* Desktop Navigation Links */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '28px', '@media (max-width: 768px)': { display: 'none' } }} className="desktop-nav">
+        <button 
+          onClick={() => handleNavClick('catalog')} 
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'catalog' ? 'var(--cmyk-cyan)' : 'var(--text-secondary)',
+            fontSize: '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            padding: '6px 12px',
+            borderRadius: 'var(--radius-sm)',
+            transition: 'color var(--transition-fast)'
+          }}
+        >
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <Package size={18} />
+            Products &amp; Supplies
+          </span>
+        </button>
+        <button 
+          onClick={() => handleNavClick('booking')} 
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'booking' ? 'var(--cmyk-magenta)' : 'var(--text-secondary)',
+            fontSize: '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            padding: '6px 12px',
+            borderRadius: 'var(--radius-sm)',
+            transition: 'color var(--transition-fast)'
+          }}
+        >
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <Wrench size={18} />
+            Book Service
+          </span>
+        </button>
+        <button 
+          onClick={() => handleNavClick('admin')} 
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'admin' ? 'var(--cmyk-yellow)' : 'var(--text-secondary)',
+            fontSize: '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            padding: '6px 12px',
+            borderRadius: 'var(--radius-sm)',
+            transition: 'color var(--transition-fast)'
+          }}
+        >
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <Settings size={18} />
+            Admin Portal
+          </span>
+        </button>
+      </div>
+
+      {/* Action Controls (Currency, Theme, Cart) */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        {/* ZAR / USD Toggle */}
+        <div style={{
+          display: 'flex',
+          background: 'rgba(0, 0, 0, 0.3)',
+          border: '1px solid var(--border-color)',
+          borderRadius: 'var(--radius-full)',
+          padding: '2px'
+        }}>
+          <button 
+            onClick={() => setCurrency('ZAR')}
+            style={{
+              padding: '4px 10px',
+              fontSize: '0.8rem',
+              fontWeight: '700',
+              border: 'none',
+              borderRadius: 'var(--radius-full)',
+              cursor: 'pointer',
+              background: currency === 'ZAR' ? 'var(--cmyk-magenta)' : 'transparent',
+              color: currency === 'ZAR' ? '#fff' : 'var(--text-secondary)',
+              transition: 'background var(--transition-fast)'
+            }}
+          >
+            ZAR
+          </button>
+          <button 
+            onClick={() => setCurrency('USD')}
+            style={{
+              padding: '4px 10px',
+              fontSize: '0.8rem',
+              fontWeight: '700',
+              border: 'none',
+              borderRadius: 'var(--radius-full)',
+              cursor: 'pointer',
+              background: currency === 'USD' ? 'var(--cmyk-magenta)' : 'transparent',
+              color: currency === 'USD' ? '#fff' : 'var(--text-secondary)',
+              transition: 'background var(--transition-fast)'
+            }}
+          >
+            USD
+          </button>
+        </div>
+
+        {/* Theme Toggle */}
+        <button 
+          onClick={toggleTheme}
+          style={{
+            background: 'none',
+            border: '1px solid var(--border-color)',
+            borderRadius: 'var(--radius-sm)',
+            width: '38px',
+            height: '38px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            color: 'var(--text-primary)',
+            transition: 'border-color var(--transition-fast)'
+          }}
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
+
+        {/* Notifications Toggle */}
+        <button 
+          onClick={requestNotificationPermission}
+          style={{
+            background: 'none',
+            border: '1px solid var(--border-color)',
+            borderRadius: 'var(--radius-sm)',
+            width: '38px',
+            height: '38px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            color: notificationsEnabled ? 'var(--cmyk-cyan)' : 'var(--text-muted)',
+            transition: 'all var(--transition-fast)',
+            borderColor: notificationsEnabled ? 'var(--cmyk-cyan)' : 'var(--border-color)'
+          }}
+          title={notificationsEnabled ? 'Notifications Enabled' : 'Enable Notifications'}
+        >
+          {notificationsEnabled ? <Bell size={18} /> : <BellOff size={18} />}
+        </button>
+
+        {/* PWA Install Trigger */}
+        {deferredPrompt && (
+          <button 
+            onClick={installPwa}
+            style={{
+              background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, #00b8d4 100%)',
+              border: 'none',
+              borderRadius: 'var(--radius-sm)',
+              padding: '0 12px',
+              height: '38px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: '#000',
+              fontWeight: '700',
+              fontSize: '0.8rem',
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(0, 229, 255, 0.2)',
+              transition: 'all var(--transition-fast)'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.filter = 'brightness(1.1)'}
+            onMouseLeave={(e) => e.currentTarget.style.filter = 'none'}
+            title="Install App"
+          >
+            <Download size={14} /> <span className="install-text">Install</span>
+          </button>
+        )}
+
+        {/* Cart Trigger */}
+        <button 
+          onClick={toggleCartOpen}
+          style={{
+            background: 'none',
+            border: '1px solid var(--border-color)',
+            borderRadius: 'var(--radius-sm)',
+            width: '38px',
+            height: '38px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            position: 'relative',
+            color: 'var(--text-primary)',
+            transition: 'border-color var(--transition-fast)'
+          }}
+        >
+          <ShoppingCart size={18} />
+          {cartItemsCount > 0 && (
+            <span style={{
+              position: 'absolute',
+              top: '-6px',
+              right: '-6px',
+              backgroundColor: 'var(--cmyk-cyan)',
+              color: '#000',
+              fontWeight: '800',
+              fontSize: '0.75rem',
+              borderRadius: 'var(--radius-full)',
+              width: '18px',
+              height: '18px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 2px 5px rgba(0,0,0,0.3)'
+            }}>
+              {cartItemsCount}
+            </span>
+          )}
+        </button>
+
+        {/* Mobile Hamburger Menu */}
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="mobile-toggle"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: 'var(--text-primary)',
+            display: 'none' // Controlled in layout css or responsive queries
+          }}
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* CSS Styles for responsive visibility */}
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .mobile-toggle {
+            display: flex !important;
+            align-items: center;
+            justifyContent: center;
+          }
+        }
+        @media (max-width: 480px) {
+          .install-text {
+            display: none !important;
+          }
+        }
+      `}</style>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="glass-panel animate-fade-in" style={{
+          position: 'absolute',
+          top: '70px',
+          left: '0',
+          right: '0',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+          padding: '20px',
+          zIndex: '999',
+          border: '1px solid var(--border-color)'
+        }}>
+          <button 
+            onClick={() => handleNavClick('catalog')} 
+            style={{
+              padding: '12px',
+              background: activeTab === 'catalog' ? 'rgba(0, 229, 255, 0.1)' : 'transparent',
+              border: 'none',
+              color: activeTab === 'catalog' ? 'var(--cmyk-cyan)' : 'var(--text-secondary)',
+              borderRadius: 'var(--radius-sm)',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textAlign: 'left',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}
+          >
+            <Package size={20} />
+            Products &amp; Supplies
+          </button>
+          <button 
+            onClick={() => handleNavClick('booking')} 
+            style={{
+              padding: '12px',
+              background: activeTab === 'booking' ? 'rgba(255, 0, 127, 0.1)' : 'transparent',
+              border: 'none',
+              color: activeTab === 'booking' ? 'var(--cmyk-magenta)' : 'var(--text-secondary)',
+              borderRadius: 'var(--radius-sm)',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textAlign: 'left',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}
+          >
+            <Wrench size={20} />
+            Book Service
+          </button>
+          <button 
+            onClick={() => handleNavClick('admin')} 
+            style={{
+              padding: '12px',
+              background: activeTab === 'admin' ? 'rgba(255, 235, 59, 0.1)' : 'transparent',
+              border: 'none',
+              color: activeTab === 'admin' ? 'var(--cmyk-yellow)' : 'var(--text-secondary)',
+              borderRadius: 'var(--radius-sm)',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textAlign: 'left',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}
+          >
+            <Settings size={20} />
+            Admin Dashboard
+          </button>
+
+          {/* Mobile Notifications Trigger */}
+          <button 
+            onClick={() => { requestNotificationPermission(); setMobileMenuOpen(false); }} 
+            style={{
+              padding: '12px',
+              background: 'transparent',
+              border: 'none',
+              color: notificationsEnabled ? 'var(--cmyk-cyan)' : 'var(--text-secondary)',
+              borderRadius: 'var(--radius-sm)',
+              fontSize: '1rem',
+              fontWeight: '600',
+              textAlign: 'left',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}
+          >
+            {notificationsEnabled ? <Bell size={20} /> : <BellOff size={20} />}
+            {notificationsEnabled ? 'Notifications Enabled' : 'Enable Notifications'}
+          </button>
+
+          {/* Mobile Install Trigger */}
+          {deferredPrompt && (
+            <button 
+              onClick={() => { installPwa(); setMobileMenuOpen(false); }} 
+              style={{
+                padding: '12px',
+                background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, #00b8d4 100%)',
+                border: 'none',
+                color: '#000',
+                borderRadius: 'var(--radius-sm)',
+                fontSize: '1rem',
+                fontWeight: '700',
+                textAlign: 'center',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                marginTop: '8px'
+              }}
+            >
+              <Download size={20} />
+              Install Application
+            </button>
+          )}
+        </div>
+      )}
+    </nav>
+  );
+}
