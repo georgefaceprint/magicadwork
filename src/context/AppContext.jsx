@@ -260,6 +260,78 @@ export const AppProvider = ({ children }) => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  // --- Authentication State & Handlers ---
+  const [currentUser, setCurrentUser] = useState(() => {
+    const saved = localStorage.getItem('magic_adwork_current_user');
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
+  // Simulated local database list of registered users
+  const [users, setUsers] = useState(() => {
+    const saved = localStorage.getItem('magic_adwork_users');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  const signup = (email, password, name) => {
+    const trimmedEmail = email.trim().toLowerCase();
+    const existing = users.find(u => u.email === trimmedEmail);
+    if (existing) {
+      throw new Error('An account with this email already exists.');
+    }
+
+    const newUser = { email: trimmedEmail, password, name: name.trim() };
+    const updatedUsers = [...users, newUser];
+    setUsers(updatedUsers);
+    localStorage.setItem('magic_adwork_users', JSON.stringify(updatedUsers));
+    
+    // Auto-login
+    setCurrentUser(newUser);
+    localStorage.setItem('magic_adwork_current_user', JSON.stringify(newUser));
+    setAuthModalOpen(false);
+
+    sendNotification("Welcome to Magic Adwork!", `Account created successfully for ${newUser.name}.`);
+  };
+
+  const login = (email, password) => {
+    const trimmedEmail = email.trim().toLowerCase();
+    const user = users.find(u => u.email === trimmedEmail && u.password === password);
+    if (!user) {
+      throw new Error('Invalid email or password.');
+    }
+
+    setCurrentUser(user);
+    localStorage.setItem('magic_adwork_current_user', JSON.stringify(user));
+    setAuthModalOpen(false);
+    
+    sendNotification("Signed In", `Welcome back, ${user.name}!`);
+  };
+
+  const loginWithGoogle = () => {
+    // Simulate Google Sign-In with a mock user after 1s loading
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const googleUser = {
+          email: 'georgefaceprint@gmail.com',
+          name: 'George',
+          isGoogleUser: true
+        };
+        setCurrentUser(googleUser);
+        localStorage.setItem('magic_adwork_current_user', JSON.stringify(googleUser));
+        setAuthModalOpen(false);
+        sendNotification("Signed in with Google", `Welcome, ${googleUser.name}!`);
+        resolve(googleUser);
+      }, 1000);
+    });
+  };
+
+  const logout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('magic_adwork_current_user');
+    sendNotification("Signed Out", "You have successfully signed out.");
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -286,7 +358,14 @@ export const AppProvider = ({ children }) => {
         installPwa,
         notificationsEnabled,
         requestNotificationPermission,
-        sendNotification
+        sendNotification,
+        currentUser,
+        authModalOpen,
+        setAuthModalOpen,
+        login,
+        signup,
+        loginWithGoogle,
+        logout
       }}
     >
       {children}

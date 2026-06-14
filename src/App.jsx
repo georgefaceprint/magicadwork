@@ -6,6 +6,7 @@ import ProductCatalog from './components/ProductCatalog';
 import ServiceBooking from './components/ServiceBooking';
 import AdminDashboard from './components/AdminDashboard';
 import CheckoutPayment from './components/CheckoutPayment';
+import AuthModal from './components/AuthModal';
 import { Mail, Phone, MapPin, Printer, HelpCircle } from 'lucide-react';
 
 function AppContent() {
@@ -41,6 +42,7 @@ function AppContent() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
+      <AuthModal />
       {/* 4-Second Splash Screen */}
       {showSplash && (
         <div style={{
