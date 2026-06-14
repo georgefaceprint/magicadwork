@@ -18,6 +18,12 @@ function AppContent() {
     const shown = sessionStorage.getItem('magic_adwork_splash_shown');
     return !shown;
   });
+
+  useEffect(() => {
+    const handleLoginSuccess = () => setActiveTab('admin');
+    window.addEventListener('loginSuccess', handleLoginSuccess);
+    return () => window.removeEventListener('loginSuccess', handleLoginSuccess);
+  }, []);
   const [splashFade, setSplashFade] = useState(false);
 
   useEffect(() => {

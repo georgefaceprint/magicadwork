@@ -317,11 +317,11 @@ export const AppProvider = ({ children }) => {
 
     if (error) throw error;
     
-    setAuthModalOpen(false);
+    console.log("CLOSING MODAL"); setAuthModalOpen(false);
     sendNotification("Welcome to Magic Adwork!", `Account created successfully.`);
   };
 
-  const login = async (email, password) => {
+  const login = async (email, password) => { console.log("LOGIN CALLED WITH", email);
     const trimmedEmail = email.trim().toLowerCase();
     
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -333,6 +333,7 @@ export const AppProvider = ({ children }) => {
 
     setAuthModalOpen(false);
     sendNotification("Signed In", `Welcome back!`);
+    window.dispatchEvent(new CustomEvent('loginSuccess'));
   };
 
   const loginWithGoogle = async () => {
