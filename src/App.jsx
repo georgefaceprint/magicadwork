@@ -9,6 +9,8 @@ import AdminDashboard from './components/AdminDashboard';
 import CheckoutPayment from './components/CheckoutPayment';
 import AuthModal from './components/AuthModal';
 import Chatbot from './components/Chatbot';
+import PartsFinder from './components/PartsFinder';
+import ResourceHub from './components/ResourceHub';
 import { Mail, Phone, MapPin, Printer, HelpCircle } from 'lucide-react';
 
 function AppContent() {
@@ -173,6 +175,10 @@ function AppContent() {
         
         {activeTab === 'admin' && <AdminDashboard />}
         
+        {activeTab === 'parts-finder' && <PartsFinder toggleCartOpen={toggleCartOpen} />}
+        
+        {activeTab === 'resource-hub' && <ResourceHub />}
+
         {activeTab === 'checkout' && (
           <CheckoutPayment setActiveTab={setActiveTab} />
         )}

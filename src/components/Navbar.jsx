@@ -57,353 +57,61 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
       </div>
 
       {/* Desktop Navigation Links */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }} className="desktop-nav">
-        <button 
-          onClick={() => handleNavClick('catalog')} 
-          style={{
-            background: 'none',
-            border: 'none',
-            color: activeTab === 'catalog' ? 'var(--cmyk-cyan)' : 'var(--text-secondary)',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            padding: '6px 12px',
-            borderRadius: 'var(--radius-sm)',
-            transition: 'color var(--transition-fast)'
-          }}
-        >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <Package size={18} />
-            Products &amp; Supplies
-          </span>
-        </button>
-        <button 
-          onClick={() => handleNavClick('booking')} 
-          style={{
-            background: 'none',
-            border: 'none',
-            color: activeTab === 'booking' ? 'var(--cmyk-magenta)' : 'var(--text-secondary)',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            padding: '6px 12px',
-            borderRadius: 'var(--radius-sm)',
-            transition: 'color var(--transition-fast)'
-          }}
-        >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <Wrench size={18} />
-            Book Service
-          </span>
-        </button>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }} className="desktop-nav">
+        <button onClick={() => handleNavClick('catalog')} style={{ background: 'none', border: 'none', color: activeTab === 'catalog' ? 'var(--cmyk-cyan)' : 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}>Shop Catalog</button>
+        <button onClick={() => handleNavClick('parts-finder')} style={{ background: 'none', border: 'none', color: activeTab === 'parts-finder' ? 'var(--cmyk-cyan)' : 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}>Parts Finder</button>
+        <button onClick={() => handleNavClick('resource-hub')} style={{ background: 'none', border: 'none', color: activeTab === 'resource-hub' ? 'var(--cmyk-cyan)' : 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}>Resource Hub</button>
+        <button onClick={() => handleNavClick('booking')} style={{ background: 'none', border: 'none', color: activeTab === 'booking' ? 'var(--cmyk-magenta)' : 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}>Book Service</button>
         {currentUser?.email === 'tnklf@icloud.com' && (
-        <button 
-          onClick={() => handleNavClick('admin')} 
-          style={{
-            background: 'none',
-            border: 'none',
-            color: activeTab === 'admin' ? 'var(--cmyk-yellow)' : 'var(--text-secondary)',
-            fontSize: '1rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            padding: '6px 12px',
-            borderRadius: 'var(--radius-sm)',
-            transition: 'color var(--transition-fast)'
-          }}
-        >
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <Settings size={18} />
-            Admin Portal
-          </span>
-        </button>
+          <button onClick={() => handleNavClick('admin')} style={{ background: 'none', border: 'none', color: activeTab === 'admin' ? 'var(--cmyk-yellow)' : 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}>Admin</button>
         )}
       </div>
 
       {/* Action Controls (Currency, Theme, Cart) */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-        {/* ZAR / USD Toggle */}
-        <div style={{
-          display: 'flex',
-          background: 'rgba(0, 0, 0, 0.3)',
-          border: '1px solid var(--border-color)',
-          borderRadius: 'var(--radius-full)',
-          padding: '2px'
-        }}>
-          <button 
-            onClick={() => setCurrency('ZAR')}
-            style={{
-              padding: '4px 10px',
-              fontSize: '0.8rem',
-              fontWeight: '700',
-              border: 'none',
-              borderRadius: 'var(--radius-full)',
-              cursor: 'pointer',
-              background: currency === 'ZAR' ? 'var(--cmyk-magenta)' : 'transparent',
-              color: currency === 'ZAR' ? '#fff' : 'var(--text-secondary)',
-              transition: 'background var(--transition-fast)'
-            }}
-          >
-            ZAR
-          </button>
-          <button 
-            onClick={() => setCurrency('USD')}
-            style={{
-              padding: '4px 10px',
-              fontSize: '0.8rem',
-              fontWeight: '700',
-              border: 'none',
-              borderRadius: 'var(--radius-full)',
-              cursor: 'pointer',
-              background: currency === 'USD' ? 'var(--cmyk-magenta)' : 'transparent',
-              color: currency === 'USD' ? '#fff' : 'var(--text-secondary)',
-              transition: 'background var(--transition-fast)'
-            }}
-          >
-            USD
-          </button>
+        <div style={{ display: 'flex', background: 'rgba(0, 0, 0, 0.3)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-full)', padding: '2px' }}>
+          <button onClick={() => setCurrency('ZAR')} style={{ padding: '4px 10px', fontSize: '0.8rem', fontWeight: '700', border: 'none', borderRadius: 'var(--radius-full)', cursor: 'pointer', background: currency === 'ZAR' ? 'var(--cmyk-magenta)' : 'transparent', color: currency === 'ZAR' ? '#fff' : 'var(--text-secondary)' }}>ZAR</button>
+          <button onClick={() => setCurrency('USD')} style={{ padding: '4px 10px', fontSize: '0.8rem', fontWeight: '700', border: 'none', borderRadius: 'var(--radius-full)', cursor: 'pointer', background: currency === 'USD' ? 'var(--cmyk-magenta)' : 'transparent', color: currency === 'USD' ? '#fff' : 'var(--text-secondary)' }}>USD</button>
         </div>
 
-        {/* Theme Toggle */}
-        <button 
-          onClick={toggleTheme}
-          style={{
-            background: 'none',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            width: '38px',
-            height: '38px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            color: 'var(--text-primary)',
-            transition: 'border-color var(--transition-fast)'
-          }}
-          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        >
+        <button onClick={toggleTheme} style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'var(--text-primary)' }}>
           {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
-        {/* Notifications Toggle */}
-        <button 
-          onClick={requestNotificationPermission}
-          style={{
-            background: 'none',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            width: '38px',
-            height: '38px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            color: notificationsEnabled ? 'var(--cmyk-cyan)' : 'var(--text-muted)',
-            transition: 'all var(--transition-fast)',
-            borderColor: notificationsEnabled ? 'var(--cmyk-cyan)' : 'var(--border-color)'
-          }}
-          title={notificationsEnabled ? 'Notifications Enabled' : 'Enable Notifications'}
-        >
+        <button onClick={requestNotificationPermission} style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: notificationsEnabled ? 'var(--cmyk-cyan)' : 'var(--text-muted)' }}>
           {notificationsEnabled ? <Bell size={18} /> : <BellOff size={18} />}
         </button>
 
-        {/* PWA Install Trigger */}
         {deferredPrompt && (
-          <button 
-            onClick={installPwa}
-            style={{
-              background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, #00b8d4 100%)',
-              border: 'none',
-              borderRadius: 'var(--radius-sm)',
-              padding: '0 12px',
-              height: '38px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              color: '#000',
-              fontWeight: '700',
-              fontSize: '0.8rem',
-              cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0, 229, 255, 0.2)',
-              transition: 'all var(--transition-fast)'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.filter = 'brightness(1.1)'}
-            onMouseLeave={(e) => e.currentTarget.style.filter = 'none'}
-            title="Install App"
-          >
+          <button onClick={installPwa} style={{ background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, #00b8d4 100%)', border: 'none', borderRadius: 'var(--radius-sm)', padding: '0 12px', height: '38px', color: '#000', fontWeight: '700', fontSize: '0.8rem', cursor: 'pointer' }}>
             <Download size={14} /> <span className="install-text">Install</span>
           </button>
         )}
 
-        {/* Cart Trigger */}
-        <button 
-          onClick={() => {
-            startTransition(() => toggleCartOpen());
-          }}
-          style={{
-            background: 'none',
-            border: '1px solid var(--border-color)',
-            borderRadius: 'var(--radius-sm)',
-            width: '38px',
-            height: '38px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            position: 'relative',
-            color: 'var(--text-primary)',
-            transition: 'border-color var(--transition-fast)'
-          }}
-        >
+        <button onClick={() => { startTransition(() => toggleCartOpen()); }} style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', position: 'relative', color: 'var(--text-primary)' }}>
           <ShoppingCart size={18} />
           {cartItemsCount > 0 && (
-            <span style={{
-              position: 'absolute',
-              top: '-6px',
-              right: '-6px',
-              backgroundColor: 'var(--cmyk-cyan)',
-              color: '#000',
-              fontWeight: '800',
-              fontSize: '0.75rem',
-              borderRadius: 'var(--radius-full)',
-              width: '18px',
-              height: '18px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 2px 5px rgba(0,0,0,0.3)'
-            }}>
+            <span style={{ position: 'absolute', top: '-6px', right: '-6px', backgroundColor: 'var(--cmyk-cyan)', color: '#000', fontWeight: '800', fontSize: '0.75rem', borderRadius: 'var(--radius-full)', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {cartItemsCount}
             </span>
           )}
         </button>
 
-        {/* User Profile / Authentication */}
         {!currentUser ? (
-          <button 
-            onClick={() => {
-              startTransition(() => setAuthModalOpen(true));
-            }}
-            style={{
-              background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)',
-              border: 'none',
-              borderRadius: 'var(--radius-full)',
-              padding: '0 24px',
-              height: '42px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              color: '#fff',
-              fontWeight: '800',
-              fontSize: '0.9rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(255, 0, 127, 0.4)',
-              transition: 'all 0.3s ease',
-              transform: 'scale(1)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 229, 255, 0.5)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 0, 127, 0.4)';
-            }}
-          >
-            <User size={16} />
-            Login / Join
+          <button onClick={() => { startTransition(() => setAuthModalOpen(true)); }} style={{ background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)', border: 'none', borderRadius: 'var(--radius-full)', padding: '0 24px', height: '42px', color: '#fff', fontWeight: '800', fontSize: '0.9rem', cursor: 'pointer' }}>
+            <User size={16} /> Login
           </button>
         ) : (
           <div style={{ position: 'relative' }}>
-            <button
-              onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-              style={{
-                background: 'none',
-                border: '1px solid var(--border-color)',
-                borderRadius: '50%',
-                width: '38px',
-                height: '38px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                padding: '0',
-                overflow: 'hidden',
-                transition: 'all var(--transition-fast)',
-                borderColor: userDropdownOpen ? 'var(--cmyk-cyan)' : 'var(--border-color)'
-              }}
-              title={currentUser.name}
-            >
-              <div style={{
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)',
-                color: '#fff',
-                fontWeight: '800',
-                fontSize: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                textTransform: 'uppercase'
-              }}>
-                {currentUser.name.charAt(0)}
-              </div>
+            <button onClick={() => setUserDropdownOpen(!userDropdownOpen)} style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: '50%', width: '38px', height: '38px', cursor: 'pointer' }}>
+              {currentUser.name.charAt(0)}
             </button>
-
-            {/* User Dropdown Menu */}
             {userDropdownOpen && (
-              <div 
-                className="glass-panel" 
-                style={{
-                  position: 'absolute',
-                  top: '48px',
-                  right: '0',
-                  width: '220px',
-                  padding: '16px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
-                  zIndex: '1002',
-                  border: '1px solid var(--border-color)',
-                  backgroundColor: 'var(--bg-glass)',
-                  boxShadow: 'var(--shadow-md)',
-                  borderRadius: 'var(--radius-sm)'
-                }}
-              >
-                {/* Dropdown Backdrop to close click */}
-                <div 
-                  onClick={() => setUserDropdownOpen(false)}
-                  style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    zIndex: '-1',
-                    cursor: 'default'
-                  }}
-                />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', overflow: 'hidden' }}>
-                  <span style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-primary)', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                    {currentUser.name}
-                  </span>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                    {currentUser.email}
-                  </span>
+              <div className="glass-panel" style={{ position: 'absolute', top: '48px', right: '0', width: '220px', padding: '16px', zIndex: '1002', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: '700' }}>{currentUser.name}</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{currentUser.email}</span>
                 </div>
-                <div style={{ height: '1px', backgroundColor: 'var(--border-color)' }} />
-                <button
-                  onClick={() => { logout(); setUserDropdownOpen(false); }}
-                  style={{
-                    width: '100%',
-                    padding: '8px 12px',
-                    backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                    border: '1px solid rgba(239, 68, 68, 0.25)',
-                    borderRadius: '4px',
-                    color: '#ef4444',
-                    fontWeight: '700',
-                    fontSize: '0.85rem',
                     cursor: 'pointer',
                     textAlign: 'center',
                     transition: 'background var(--transition-fast)'
