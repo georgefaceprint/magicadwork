@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 import { Truck, CreditCard, Landmark, CheckCircle, ArrowRight, ShieldCheck, X, RefreshCw, AlertTriangle, Upload, Copy, Check, FileText } from 'lucide-react';
 import { getCourierGuyRates } from '../services/courierGuy';
+import emailjs from '@emailjs/browser';
 
 export default function CheckoutPayment({ setActiveTab }) {
-  const { cart, formatPrice, getCartSubtotal, getCartWeight, clearCart, sendNotification } = useApp();
+  const { cart, formatPrice, getCartSubtotal, getCartWeight, clearCart, sendNotification, currentUser } = useApp();
 
   const suburbsList = [
     { name: 'Jeppestown (HQ Local)', distanceKm: 2, zone: 'Local' },
@@ -142,6 +143,36 @@ export default function CheckoutPayment({ setActiveTab }) {
     processPopFile(file);
   };
 
+  const sendOrderEmail = async (orderDetails) => {
+    // Format cart items for email
+    const itemsList = orderDetails.items.map(item => 
+      `- ${item.qty}x ${item.product.name} (${formatPrice(item.product.priceZAR)} each)`
+    ).join('\n');
+
+    const addressStr = `${orderDetails.shipping.street}, ${orderDetails.shipping.suburb}, ${orderDetails.shipping.postalCode} (Phone: ${orderDetails.shipping.recipientPhone})`;
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'default_service',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'default_template',
+        {
+          user_name: currentUser?.name || 'Guest',
+          user_email: currentUser?.email || 'N/A',
+          order_id: orderDetails.orderId,
+          order_items: itemsList,
+          total_weight: getCartWeight().toFixed(2) + ' kg',
+          total_price: formatPrice(orderDetails.totalZAR),
+          shipping_address: addressStr,
+          payment_method: orderDetails.payment
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'default_public_key'
+      );
+      console.log('Order email sent successfully');
+    } catch (err) {
+      console.error('Failed to send order email:', err);
+    }
+  };
+
   const handlePlaceOrderEft = (e) => {
     e.preventDefault();
     if (!shippingAddress.street || !shippingAddress.postalCode || !shippingAddress.recipientPhone) {
@@ -169,6 +200,9 @@ export default function CheckoutPayment({ setActiveTab }) {
     );
     setCheckoutComplete(orderDetails);
     clearCart();
+    
+    // Send email notification
+    sendOrderEmail(orderDetails);
   };
 
   // Paystack Simulation functions
@@ -223,6 +257,9 @@ export default function CheckoutPayment({ setActiveTab }) {
         );
         setCheckoutComplete(orderDetails);
         clearCart();
+        
+        // Send email notification
+        sendOrderEmail(orderDetails);
       }, 1500);
     }, 2000);
   };
