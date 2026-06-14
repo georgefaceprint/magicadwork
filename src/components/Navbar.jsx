@@ -112,6 +112,18 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
                   <span style={{ fontSize: '0.85rem', fontWeight: '700' }}>{currentUser.name}</span>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{currentUser.email}</span>
                 </div>
+                <div style={{ height: '1px', backgroundColor: 'var(--border-color)', marginBottom: '8px' }} />
+                <button
+                  onClick={() => { logout(); setUserDropdownOpen(false); }}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                    border: '1px solid rgba(239, 68, 68, 0.25)',
+                    borderRadius: '4px',
+                    color: '#ef4444',
+                    fontWeight: '700',
+                    fontSize: '0.85rem',
                     cursor: 'pointer',
                     textAlign: 'center',
                     transition: 'background var(--transition-fast)'
