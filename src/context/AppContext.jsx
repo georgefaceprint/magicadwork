@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import initialInventory from '../data/inventory.json';
 import { supabase } from '../supabaseClient';
 
@@ -86,14 +86,14 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   // Helper to convert ZAR to active currency and format
-  const formatPrice = (zarVal) => {
+  const formatPrice = useCallback((zarVal) => {
     if (currency === 'USD') {
       const usdVal = zarVal / usdToZarRate;
       return `$${usdVal.toFixed(2)}`;
     }
     // ZAR Format
     return `R ${Number(zarVal).toLocaleString('en-ZA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  };
+  }, [currency, usdToZarRate]);
 
   // Helper to convert ZAR value directly
   const convertZar = (zarVal) => {
@@ -113,7 +113,7 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('magic_adwork_cart', JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product, qty = 1) => {
+  const addToCart = useCallback((product, qty = 1) => {
     // Require authentication before adding to cart
     if (!currentUser) {
       setAuthModalOpen(true);
@@ -129,7 +129,7 @@ export const AppProvider = ({ children }) => {
       }
       return [...prevCart, { product, qty }];
     });
-  };
+  }, [currentUser]);
 
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.product.id !== productId));

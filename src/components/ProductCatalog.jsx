@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, startTransition, useMemo } from 'react';
+import React, { useState, useEffect, useRef, startTransition, useMemo, useCallback } from 'react';
 import { useApp } from '../context/AppContext';
 import { Search, ShoppingBag, Eye, X, Check, ArrowRight, Trash2, ShieldAlert } from 'lucide-react';
 
@@ -18,16 +18,18 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
   }, [selectedCategory]);
 
   // Filter products based on search, main category, and subcategory
-  const filteredProducts = products.filter(p => {
-    const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) || 
-                          (p.description && p.description.toLowerCase().includes(search.toLowerCase())) ||
-                          (p.subcategory && p.subcategory.toLowerCase().includes(search.toLowerCase()));
-    
-    const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
-    const matchesSubcategory = selectedSubcategory === 'All' || p.subcategory === selectedSubcategory;
-    
-    return matchesSearch && matchesCategory && matchesSubcategory;
-  });
+  const filteredProducts = useMemo(() => {
+    return products.filter(p => {
+      const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) || 
+                            (p.description && p.description.toLowerCase().includes(search.toLowerCase())) ||
+                            (p.subcategory && p.subcategory.toLowerCase().includes(search.toLowerCase()));
+      
+      const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
+      const matchesSubcategory = selectedSubcategory === 'All' || p.subcategory === selectedSubcategory;
+      
+      return matchesSearch && matchesCategory && matchesSubcategory;
+    });
+  }, [products, search, selectedCategory, selectedSubcategory]);
 
   const categories = ['All', 'Machines & Equipment', 'Inks & Powders', 'Roland Spare Parts', 'Mimaki Spare Parts'];
 
@@ -37,9 +39,9 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
     : ['All', ...new Set(products.filter(p => p.category === selectedCategory).map(p => p.subcategory))];
 
   // Handle opening the native dialog modal
-  const openDetails = (product) => {
+  const openDetails = useCallback((product) => {
     setSelectedProduct(product);
-  };
+  }, []);
 
   useEffect(() => {
     if (selectedProduct && dialogRef.current) {
