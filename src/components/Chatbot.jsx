@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User, Loader2, RefreshCw } from 'lucide-react';
+import { useApp } from '../context/AppContext';
 
 export default function Chatbot() {
+  const { products } = useApp(); // Gets the full catalog
   const [isOpen, setIsOpen] = useState(false);
   const initialMessage = { role: 'model', text: "Hi! I'm Tekle, Magic Adwork's AI technician. How can I help you with Mimaki, Roland, or inks today?" };
   const [messages, setMessages] = useState([initialMessage]);
@@ -31,12 +33,16 @@ export default function Chatbot() {
 
     try {
       // Send to Vercel Serverless Function
+      // Prepare a summarized inventory list to inject into Tekle's brain
+      const inventoryContext = products ? products.map(p => `${p.name} (${p.category}) - R${p.price}`).join(', ') : '';
+
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: userMessage,
-          history: messages // Pass existing history for context
+          history: messages,
+          inventoryContext
         })
       });
 

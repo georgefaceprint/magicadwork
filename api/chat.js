@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message, history } = req.body;
+    const { message, history, inventoryContext } = req.body;
 
     if (!message) {
       return res.status(400).json({ error: 'Message is required' });
@@ -55,11 +55,13 @@ export default async function handler(req, res) {
       parts: [{ text: msg.text }]
     }));
 
+    const dynamicSystemInstruction = SYSTEM_INSTRUCTION + `\n\nCURRENT INVENTORY CATALOG:\n${inventoryContext || 'No inventory data provided.'}`;
+
     // Start chat session with system instructions
     const chat = ai.chats.create({
       model: 'gemini-2.5-flash',
       config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
+        systemInstruction: dynamicSystemInstruction,
         temperature: 0.3,
       },
       history: formattedHistory
