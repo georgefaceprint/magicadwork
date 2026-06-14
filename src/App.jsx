@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PullToRefresh from './components/PullToRefresh';
 import { AppProvider } from './context/AppContext';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -41,6 +42,7 @@ function AppContent() {
   const toggleCartOpen = () => setCartOpen(!cartOpen);
 
   return (
+    <PullToRefresh>
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
       <AuthModal />
       {/* 4-Second Splash Screen */}
@@ -312,6 +314,7 @@ function AppContent() {
         }
       `}</style>
     </div>
+    </PullToRefresh>
   );
 }
 
