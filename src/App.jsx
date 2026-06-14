@@ -8,6 +8,7 @@ import ServiceBooking from './components/ServiceBooking';
 import AdminDashboard from './components/AdminDashboard';
 import CheckoutPayment from './components/CheckoutPayment';
 import AuthModal from './components/AuthModal';
+import WhatsAppButton from './components/WhatsAppButton';
 import { Mail, Phone, MapPin, Printer, HelpCircle } from 'lucide-react';
 
 function AppContent() {
@@ -328,6 +329,7 @@ export default function App() {
   return (
     <AppProvider>
       <AppContent />
+      <WhatsAppButton />
     </AppProvider>
   );
 }
