@@ -2110,5 +2110,442 @@
     "image": "https://www.signmaster.co.uk/cdn/shop/files/CJV200-Series-all-machines_605x742_0e769af8-9c0a-4a33-8529-640b48d54ebe.jpg?v=1770372976",
     "inStock": true,
     "weightKg": 155
+  },
+  {
+    "id": "NUTEC-0YNB90G",
+    "name": "NUtec A20-HYB Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A20-HYB is a general purpose, hybrid UV ink designed for rigid and roll-to-roll applications on Ricoh® Gen 5, Gen 5s, & Gen 6, as well as the Kyocera® KJ4A print heads."
+  },
+  {
+    "id": "NUTEC-JXXD3YW",
+    "name": "NUtec A20-RIG Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A20-RIG is a GREENGUARD Gold certified, premium quality UV ink developed for Ricoh® Gen 5 & Gen 5s, as well as the Kyocera® KJ4A print heads."
+  },
+  {
+    "id": "NUTEC-7D9C34A",
+    "name": "NUtec A20-RTR Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A20-RTR is a GREENGUARD Gold certified premium quality, roll-to-roll UV ink, designed for Ricoh® Gen 5, Gen 5s & Gen 6, as well as the Kyocera® KJ4A print heads."
+  },
+  {
+    "id": "NUTEC-F1QXNIP",
+    "name": "NUtec A20-RTR-MI Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Mimaki"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A20-RTR-MI is a GREENGUARD Gold certified, premium quality roll-to-roll UV-curable ink, designed for Mimaki® Roll-to-Roll printers."
+  },
+  {
+    "id": "NUTEC-TTXTILH",
+    "name": "NUtec A50-HYB Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A50-HYB is a premium quality hybrid UV-curable ink, designed for a wide range of rigid and roll-to-roll applications. It is a wide format ink that cures with LED and Conventional UV lamps."
+  },
+  {
+    "id": "NUTEC-FLFDF1C",
+    "name": "NUtec A50-RIG Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A50-RIG is a GREENGUARD Gold certified premium quality rigid UV ink, with superior media adhesion qualities, for use without primer, on a large variety of rigid substrates."
+  },
+  {
+    "id": "NUTEC-BPAISPR",
+    "name": "NUtec A50-RTR Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A50-RTR is a superior roll-to-roll UV curable ink suitable for LED and Conventional UV lamps. This fast curing ink performs well in a demanding, high speed printing environment, providing enhanced scuff and chemical resistance."
+  },
+  {
+    "id": "NUTEC-H4P7AUA",
+    "name": "NUtec A50-RTR-EF Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Amethyst A50-RTR-EF is a superior roll-to-roll UV curable ink optimised for use on the EFI® VUTEk® Roll-to-Roll QS and GS series printers."
+  },
+  {
+    "id": "NUTEC-AEL8TR3",
+    "name": "NUtec Q50-HYB Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Quartz Q50-HYB is a cost-effective hybrid UV-Curable ink optimised for LED UV lamp curing and developed for printers using Konica Minolta® KM1024i and Ricoh® Gen 5 & 6 printheads."
+  },
+  {
+    "id": "NUTEC-UXNHUB6",
+    "name": "NUtec Q50-RTR2 Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Quartz Q50-RTR2 is a cost-effective, wide-format roll-to-roll UV-curable ink designed for a large number of self-adhesive and flexible media applications."
+  },
+  {
+    "id": "NUTEC-OXGAUYB",
+    "name": "NUtec R10-DTF Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Ruby R10-DTF UV-curable direct-to-film ink for durable decals on hard goods with vivid colour, high-opacity white and clean carrier release without weeding."
+  },
+  {
+    "id": "NUTEC-H4UJOHH",
+    "name": "NUtec R10-HYB Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Ruby R10-HYB is a hybrid UV ink, optimised for LED UV lamps and developed for Epson® DX7, I3200-U1 & XP600 printheads."
+  },
+  {
+    "id": "NUTEC-FOD3H75",
+    "name": "NUtec R10-RTR Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Ruby R10-RTR is a premium quality, roll-to-roll UV-curable ink optimised for LED UV-lamp curing and developed for Epson® DX7, I3200-U1 & XP600 printheads."
+  },
+  {
+    "id": "NUTEC-PJLWJMH",
+    "name": "NUtec R20-HYB Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Ruby R20-HYB is a general purpose, fast curing hybrid UV ink, optimised for LED UV lamps and developed for Ricoh® and Kyocera® printheads."
+  },
+  {
+    "id": "NUTEC-KTX6UDP",
+    "name": "NUtec R20-RTR Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Ruby R20-RTR is a fast curing roll-to-roll UV ink optimised for LED UV lamps on printers using Ricoh® Gen 5 and Kyocera® KJ4A printheads."
+  },
+  {
+    "id": "NUTEC-W79VHXZ",
+    "name": "NUtec R50-RTR Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Ruby R50-RTR is a fast curing roll-to-roll UV curable ink optimised for LED UV lamps, developed for Fujifilm®, Konica Minolta®, Xaar®,  ToshibaTec®, Ricoh® and Seiko® printheads."
+  },
+  {
+    "id": "NUTEC-9FFWM1H",
+    "name": "NUtec D10-ESM Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Roland",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Diamond D10-ESM eco-solvent ink is designed as a back to back replacement for Roland® Eco-Sol Max™ inks, and provides excellent media compatibility across a broad range of self-adhesive and flexible substrates."
+  },
+  {
+    "id": "NUTEC-6RKPYK8",
+    "name": "NUtec D10-ESM2 Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Roland",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Diamond D10-ESM2 eco-solvent ink is designed as a back to back replacement for Roland® Eco-Sol MAX2™ inks, providing excellent media compatibility across a broad range of self-adhesive and flexible substrates."
+  },
+  {
+    "id": "NUTEC-6X42ZK8",
+    "name": "NUtec D10-GF-CS25 Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Mimaki"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Diamond D10-GF-CS25 is a GBL-free high-performance eco-solvent ink formulated as a seamless, plug-and-play alternative for Mimaki® CS250 inks."
+  },
+  {
+    "id": "NUTEC-3N34FKN",
+    "name": "NUtec D10-GF-MS21 Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Mimaki"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Diamond D10-GF-MS21 eco-solvent ink is designed as a back to back replacement for Mimaki® SS21™ inks only. This formulation is GBL-free and offers superior abrasion and chemical resistance."
+  },
+  {
+    "id": "NUTEC-1C9RL2V",
+    "name": "NUtec D15-TRV2 Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Roland",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Diamond D15-TRV2 GBL-free eco-solvent ink is designed as a back to back replacement for Roland® TrueVIS® TR2 inks used in Roland® VG, VG2, SG and SG2 printers."
+  },
+  {
+    "id": "NUTEC-OUGERZ4",
+    "name": "NUtec D20-GF Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Diamond D20-GF is a GBL-free, premium eco-solvent ink designed for use on the Fujifilm® Dimatix® Spectra Starfire print head."
+  },
+  {
+    "id": "NUTEC-81UTE2U",
+    "name": "NUtec T15-RG Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Mimaki"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Topaz T15-RG is an optimised, premium quality, mild solvent ink, designed for use in Ricoh® Gen 5 print heads, as used in printers such as Mimaki® SWJ. This low-smell formulation renders great image quality with a high gloss finish and is ideal for backlit printing. This ink features excellent press stability, ensuring uninterrupted printing for extended periods, with low  maintenance requirements."
+  },
+  {
+    "id": "NUTEC-IQ9HSTG",
+    "name": "NUtec T35-SK-LS Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec"
+    ],
+    "compatibleBrands": [
+      "NUtec"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Topaz T35-SK-LS is a premium quality mild solvent ink, ideal for reliable and efficient high-speed printing. It is optimised for use in Seiko® SPT 35pl and performs well on a range of other print heads, including Spectra Polaris® and Konica Minolta®. This low-smell ink also offers excellent media compatibility across a broad range of self-adhesive and flexible substrates, with a high gloss finish."
+  },
+  {
+    "id": "NUTEC-IUJFOPY",
+    "name": "NUtec AQ10-DSS Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Aquamarine AQ10-DSS is an ECO Passport certified high density dye sublimation ink available in CMYK, Fluorescent Pink (FP) and Fluorescent Yellow (FY), and designed for the Epson® DX4, DX5, DX6, DX7, I1600, I3200, and XP600 print heads."
+  },
+  {
+    "id": "NUTEC-HEDP3BL",
+    "name": "NUtec AQ10-DST-HC Ink",
+    "priceZAR": 850,
+    "categories": [
+      "Inks",
+      "NUtec",
+      "Epson Printheads"
+    ],
+    "compatibleBrands": [
+      "NUtec",
+      "Epson"
+    ],
+    "stockStatus": "In Stock",
+    "weightKg": 1,
+    "imageUrl": "https://images.unsplash.com/photo-1626223847701-4475477dc110?auto=format&fit=crop&w=800&q=80",
+    "description": "Aquamarine AQ10-DST-HC is high density dye sublimation ink available in CMYK, Fluorescent Pink (FP) and Fluorescent Yellow (FY), and is designed for the Epson® DX4, DX5, DX6, DX7, 5113, I1600, I3200, PrecisionCore TFP, XP600 & EPS3200 print heads."
   }
 ]
