@@ -77,9 +77,9 @@ export default function AuthModal() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(3, 7, 18, 0.85)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)'
+          backgroundColor: 'rgba(3, 7, 18, 0.90)',
+          backdropFilter: 'blur(4px)',
+          WebkitBackdropFilter: 'blur(4px)'
         }}
       />
 

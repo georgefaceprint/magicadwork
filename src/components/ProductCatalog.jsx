@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, startTransition } from 'react';
+import React, { useState, useEffect, useRef, startTransition, useMemo } from 'react';
 import { useApp } from '../context/AppContext';
 import { Search, ShoppingBag, Eye, X, Check, ArrowRight, Trash2, ShieldAlert } from 'lucide-react';
 
@@ -419,7 +419,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
         </div>
       ) : (
         <div className="grid-container animate-fade-in">
-          {filteredProducts.map(product => (
+          {useMemo(() => filteredProducts.map(product => (
             <div 
               key={product.id} 
               className="glass-panel" 
@@ -550,7 +550,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
                 </div>
               </div>
             </div>
-          ))}
+          )), [filteredProducts, formatPrice, addToCart, openDetails])}
         </div>
       )}
 
