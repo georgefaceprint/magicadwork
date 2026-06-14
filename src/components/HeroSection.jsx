@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { startTransition } from 'react';
 import { Package, Wrench, Shield, Truck } from 'lucide-react';
 
 export default function HeroSection({ setActiveTab }) {
@@ -67,11 +67,11 @@ export default function HeroSection({ setActiveTab }) {
         justifyContent: 'center',
         marginTop: '8px'
       }}>
-        <button className="btn-primary" onClick={() => setActiveTab('catalog')}>
+        <button className="btn-primary" onClick={() => startTransition(() => setActiveTab('catalog'))}>
           <Package size={20} />
           Browse Inventory
         </button>
-        <button className="btn-secondary" onClick={() => setActiveTab('booking')}>
+        <button className="btn-secondary" onClick={() => startTransition(() => setActiveTab('booking'))}>
           <Wrench size={20} />
           Book a Technician
         </button>

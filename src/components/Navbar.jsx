@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, startTransition } from 'react';
 import { useApp } from '../context/AppContext';
 import { ShoppingCart, Menu, X, Sun, Moon, Settings, Wrench, Package, Bell, BellOff, Download, User } from 'lucide-react';
 
@@ -10,7 +10,9 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
   const cartItemsCount = cart.reduce((total, item) => total + item.qty, 0);
 
   const handleNavClick = (tabId) => {
-    setActiveTab(tabId);
+    startTransition(() => {
+      setActiveTab(tabId);
+    });
     setMobileMenuOpen(false);
   };
 
@@ -234,7 +236,9 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
 
         {/* Cart Trigger */}
         <button 
-          onClick={toggleCartOpen}
+          onClick={() => {
+            startTransition(() => toggleCartOpen());
+          }}
           style={{
             background: 'none',
             border: '1px solid var(--border-color)',
@@ -276,7 +280,9 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
         {/* User Profile / Authentication */}
         {!currentUser ? (
           <button 
-            onClick={() => setAuthModalOpen(true)}
+            onClick={() => {
+              startTransition(() => setAuthModalOpen(true));
+            }}
             style={{
               background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)',
               border: 'none',

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, startTransition } from 'react';
 import { useApp } from '../context/AppContext';
 import { Search, ShoppingBag, Eye, X, Check, ArrowRight, Trash2, ShieldAlert } from 'lucide-react';
 
@@ -329,7 +329,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
           {categories.map(cat => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => startTransition(() => setSelectedCategory(cat))}
               style={{
                 padding: '8px 16px',
                 fontSize: '0.85rem',
@@ -387,7 +387,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
           {availableSubcategories.map(sub => (
             <button
               key={sub}
-              onClick={() => setSelectedSubcategory(sub)}
+              onClick={() => startTransition(() => setSelectedSubcategory(sub))}
               style={{
                 padding: '6px 12px',
                 fontSize: '0.8rem',
@@ -413,7 +413,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
           <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '16px' }}>
             No products found matching "{search}".
           </p>
-          <button className="btn-secondary" onClick={() => { setSearch(''); setSelectedCategory('All'); }}>
+          <button className="btn-secondary" onClick={() => startTransition(() => { setSearch(''); setSelectedCategory('All'); })}>
             Reset Filters
           </button>
         </div>
@@ -525,7 +525,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
                       <Eye size={16} />
                     </button>
                     <button
-                      onClick={() => addToCart(product, 1)}
+                      onClick={() => startTransition(() => addToCart(product, 1))}
                       style={{
                         padding: '8px 12px',
                         background: 'linear-gradient(135deg, var(--cmyk-magenta) 0%, #d40066 100%)',
