@@ -72,10 +72,10 @@ export default function Chatbot() {
   };
 
   const suggestionChips = [
-    "How much is a callout fee to my place?",
-    "I need to book a technician",
-    "Do you have used Roland machines?",
-    "What solvent inks do you stock?"
+    "I need to book a technician callout",
+    "Quote me on a new Mimaki or Roland machine",
+    "I am looking for UV or Solvent inks",
+    "I need spare parts for my printer"
   ];
 
   return (
