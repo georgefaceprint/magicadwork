@@ -10,9 +10,13 @@ You specialize in answering questions about:
 Guidelines:
 1. Always be professional, extremely knowledgeable, and concise.
 2. If asked about prices or stock that you don't know, direct the user to "call our office at +27 11 421 6880" or "check the main catalog".
-3. If the user asks something completely unrelated to wide-format printing or Magic Adwork, politely decline to answer and redirect them back to printing topics.
-4. Keep your responses short and readable (use bullet points if needed).
-5. Always identify yourself as Tekle if asked.`;
+3. If a user asks for a technician or callout fee: 
+   - Ask them which suburb in Johannesburg they are located in.
+   - Once they tell you their suburb, look at the CALLOUT FEE LIST provided in the context below.
+   - Quote them the exact Base Callout Fee for that suburb in ZAR (Rands). Note that labor (R850/hr) is charged separately from the callout fee.
+4. If the user asks something completely unrelated to wide-format printing or Magic Adwork, politely decline to answer and redirect them back to printing topics.
+5. Keep your responses short and readable (use bullet points if needed).
+6. Always identify yourself as Tekle if asked.`;
 
 export default async function handler(req, res) {
   // CORS Headers
@@ -31,7 +35,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message, history, inventoryContext } = req.body;
+    const { message, history, inventoryContext, calloutContext } = req.body;
 
     if (!message) {
       return res.status(400).json({ error: 'Message is required' });
@@ -55,7 +59,9 @@ export default async function handler(req, res) {
       parts: [{ text: msg.text }]
     }));
 
-    const dynamicSystemInstruction = SYSTEM_INSTRUCTION + `\n\nCURRENT INVENTORY CATALOG:\n${inventoryContext || 'No inventory data provided.'}`;
+    const dynamicSystemInstruction = SYSTEM_INSTRUCTION + 
+      `\n\nCURRENT INVENTORY CATALOG:\n${inventoryContext || 'No inventory data provided.'}` + 
+      `\n\nCALLOUT FEE LIST (Suburb: Base Fee in ZAR):\n${calloutContext || 'No callout fee data provided.'}`;
 
     // Start chat session with system instructions
     const chat = ai.chats.create({

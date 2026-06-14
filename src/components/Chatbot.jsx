@@ -3,7 +3,7 @@ import { MessageSquare, X, Send, Bot, User, Loader2, RefreshCw, MessageCircle } 
 import { useApp } from '../context/AppContext';
 
 export default function Chatbot() {
-  const { products } = useApp(); // Gets the full catalog
+  const { products, jhbSuburbs } = useApp(); // Gets the full catalog and suburbs list
   const [isOpen, setIsOpen] = useState(false);
   const initialMessage = { role: 'model', text: "Hi! I'm Tekle, Magic Adwork's AI technician. How can I help you with Mimaki, Roland, or inks today?" };
   const [messages, setMessages] = useState([initialMessage]);
@@ -35,6 +35,9 @@ export default function Chatbot() {
       // Send to Vercel Serverless Function
       // Prepare a summarized inventory list to inject into Tekle's brain
       const inventoryContext = products ? products.map(p => `${p.name} (${p.category}) - R${p.price}`).join(', ') : '';
+      
+      // Prepare callout fee context
+      const calloutContext = jhbSuburbs ? jhbSuburbs.map(s => `${s.name}: R${s.calloutBase}`).join(', ') : '';
 
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -42,7 +45,8 @@ export default function Chatbot() {
         body: JSON.stringify({
           message: userMessage,
           history: messages,
-          inventoryContext
+          inventoryContext,
+          calloutContext
         })
       });
 
