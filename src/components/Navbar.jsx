@@ -86,7 +86,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
           </button>
         )}
 
-        <button onClick={() => { startTransition(() => toggleCartOpen()); }} style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', position: 'relative', color: 'var(--text-primary)' }}>
+        <button onClick={toggleCartOpen} style={{ background: 'none', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', position: 'relative', color: 'var(--text-primary)' }}>
           <ShoppingCart size={18} />
           {cartItemsCount > 0 && (
             <span style={{ position: 'absolute', top: '-6px', right: '-6px', backgroundColor: 'var(--cmyk-cyan)', color: '#000', fontWeight: '800', fontSize: '0.75rem', borderRadius: 'var(--radius-full)', width: '18px', height: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -96,7 +96,7 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
         </button>
 
         {!currentUser ? (
-          <button onClick={() => { startTransition(() => setAuthModalOpen(true)); }} style={{ background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)', border: 'none', borderRadius: 'var(--radius-full)', padding: '0 24px', height: '42px', color: '#fff', fontWeight: '800', fontSize: '0.9rem', cursor: 'pointer' }}>
+          <button onClick={() => setAuthModalOpen(true)} style={{ background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)', border: 'none', borderRadius: 'var(--radius-full)', padding: '0 24px', height: '42px', color: '#fff', fontWeight: '800', fontSize: '0.9rem', cursor: 'pointer' }}>
             <User size={16} /> Login
           </button>
         ) : (
@@ -294,6 +294,75 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
               <Download size={20} />
               Install Application
             </button>
+          )}
+
+          {/* Mobile Auth Controls */}
+          <div style={{ height: '1px', backgroundColor: 'var(--border-color)', margin: '8px 0' }} />
+          {!currentUser ? (
+            <button 
+              onClick={() => { setAuthModalOpen(true); setMobileMenuOpen(false); }} 
+              style={{
+                padding: '12px',
+                background: 'linear-gradient(135deg, var(--cmyk-cyan) 0%, var(--cmyk-magenta) 100%)',
+                border: 'none',
+                color: '#fff',
+                borderRadius: 'var(--radius-sm)',
+                fontSize: '1rem',
+                fontWeight: '800',
+                textAlign: 'center',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px'
+              }}
+            >
+              <User size={20} />
+              Login / Register
+            </button>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 12px' }}>
+                <div style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--cmyk-cyan)',
+                  color: '#000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '800',
+                  fontSize: '1rem'
+                }}>
+                  {currentUser.name ? currentUser.name.charAt(0) : '?'}
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontSize: '0.9rem', fontWeight: '700', color: 'var(--text-primary)' }}>{currentUser.name}</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{currentUser.email}</span>
+                </div>
+              </div>
+              <button 
+                onClick={() => { logout(); setMobileMenuOpen(false); }} 
+                style={{
+                  padding: '12px',
+                  background: 'rgba(239, 68, 68, 0.15)',
+                  border: '1px solid rgba(239, 68, 68, 0.25)',
+                  color: '#ef4444',
+                  borderRadius: 'var(--radius-sm)',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                  textAlign: 'center',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px'
+                }}
+              >
+                Log Out
+              </button>
+            </div>
           )}
         </div>
       )}
