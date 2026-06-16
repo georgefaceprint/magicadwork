@@ -23,7 +23,11 @@ function AppContent() {
   });
 
   useEffect(() => {
-    const handleLoginSuccess = () => setActiveTab('admin');
+    const handleLoginSuccess = (e) => {
+      if (e.detail?.email === 'tnklf@icloud.com') {
+        setActiveTab('admin');
+      }
+    };
     window.addEventListener('loginSuccess', handleLoginSuccess);
     return () => window.removeEventListener('loginSuccess', handleLoginSuccess);
   }, []);

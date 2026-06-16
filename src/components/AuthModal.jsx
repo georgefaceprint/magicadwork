@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useApp } from '../context/AppContext';
 import { X, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
 
 export default function AuthModal() {
   const { authModalOpen, setAuthModalOpen, login, signup, loginWithGoogle } = useApp();
   const [isSignUp, setIsSignUp] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const nameRef = useRef(null);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -17,9 +17,9 @@ export default function AuthModal() {
   const handleClose = () => {
     setAuthModalOpen(false);
     setErrorMsg('');
-    setEmail('');
-    setPassword('');
-    setName('');
+    if (emailRef.current) emailRef.current.value = '';
+    if (passwordRef.current) passwordRef.current.value = '';
+    if (nameRef.current) nameRef.current.value = '';
   };
 
   const handleSubmit = async (e) => {
@@ -27,12 +27,16 @@ export default function AuthModal() {
     setErrorMsg('');
     setLoading(true);
 
+    const emailValue = emailRef.current?.value || '';
+    const passwordValue = passwordRef.current?.value || '';
+    const nameValue = nameRef.current?.value || '';
+
     try {
       if (isSignUp) {
-        if (!name.trim()) throw new Error('Please enter your name.');
-        await signup(email, password, name);
+        if (!nameValue.trim()) throw new Error('Please enter your name.');
+        await signup(emailValue, passwordValue, nameValue);
       } else {
-        await login(email, password);
+        await login(emailValue, passwordValue);
       }
       handleClose();
     } catch (err) {
@@ -205,8 +209,7 @@ export default function AuthModal() {
                   type="text"
                   required
                   placeholder="George Faceprint"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  ref={nameRef}
                   className="form-input"
                   style={{ paddingLeft: '40px' }}
                 />
@@ -223,8 +226,7 @@ export default function AuthModal() {
                 type="email"
                 required
                 placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                ref={emailRef}
                 className="form-input"
                 style={{ paddingLeft: '40px' }}
               />
@@ -240,8 +242,7 @@ export default function AuthModal() {
                 type={showPassword ? 'text' : 'password'}
                 required
                 placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                ref={passwordRef}
                 className="form-input"
                 style={{ paddingLeft: '40px', paddingRight: '40px' }}
               />

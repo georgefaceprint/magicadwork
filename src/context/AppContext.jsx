@@ -541,8 +541,16 @@ export const AppProvider = ({ children }) => {
 
     if (error) throw error;
     
+    if (data?.user) {
+      setCurrentUser({
+        ...data.user,
+        name: data.user.user_metadata?.name || data.user.email
+      });
+    }
+
     console.log("CLOSING MODAL"); setAuthModalOpen(false);
     sendNotification("Welcome to Magic Adwork!", `Account created successfully.`);
+    window.dispatchEvent(new CustomEvent('loginSuccess', { detail: { email: trimmedEmail } }));
   };
 
   const login = async (email, password) => { console.log("LOGIN CALLED WITH", email);
@@ -555,9 +563,16 @@ export const AppProvider = ({ children }) => {
 
     if (error) throw error;
 
+    if (data?.user) {
+      setCurrentUser({
+        ...data.user,
+        name: data.user.user_metadata?.name || data.user.email
+      });
+    }
+
     setAuthModalOpen(false);
     sendNotification("Signed In", `Welcome back!`);
-    window.dispatchEvent(new CustomEvent('loginSuccess'));
+    window.dispatchEvent(new CustomEvent('loginSuccess', { detail: { email: trimmedEmail } }));
   };
 
   const loginWithGoogle = async () => {
