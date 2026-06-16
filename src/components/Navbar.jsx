@@ -32,27 +32,25 @@ export default function Navbar({ activeTab, setActiveTab, toggleCartOpen }) {
       padding: '12px 24px'
     }}>
       {/* Brand Logo */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={() => handleNavClick('catalog')}>
+      <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => handleNavClick('catalog')}>
         <div style={{
+          backgroundColor: '#ffffff',
+          padding: '4px 12px',
+          borderRadius: 'var(--radius-sm)',
           display: 'flex',
-          fontWeight: '800',
-          fontSize: '1.4rem',
-          letterSpacing: '-0.05em',
-          textTransform: 'uppercase'
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          border: '1px solid rgba(255,255,255,0.2)'
         }}>
-          <span style={{ color: 'var(--cmyk-cyan)' }}>M</span>
-          <span style={{ color: 'var(--cmyk-magenta)' }}>A</span>
-          <span style={{ color: 'var(--cmyk-yellow)' }}>G</span>
-          <span style={{ color: 'var(--text-primary)' }}>IC</span>
-          <span style={{ 
-            marginLeft: '6px',
-            padding: '2px 6px',
-            backgroundColor: 'var(--text-primary)',
-            color: 'var(--bg-primary)',
-            borderRadius: '4px',
-            fontSize: '1.1rem',
-            alignSelf: 'center'
-          }}>ADWORK</span>
+          <img 
+            src="/logo-original.png" 
+            alt="Magic Adwork Suppliers" 
+            style={{
+              height: '32px',
+              objectFit: 'contain'
+            }}
+          />
         </div>
       </div>
 

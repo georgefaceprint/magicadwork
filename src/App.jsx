@@ -90,7 +90,7 @@ function AppContent() {
             animation: 'scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
           }}>
             <img 
-              src="/pwa-512x512.png" 
+              src="/logo-original.png" 
               alt="Magic Adwork Logo" 
               style={{
                 width: '100%',
@@ -98,8 +98,7 @@ function AppContent() {
                 objectFit: 'contain'
               }}
               onError={(e) => {
-                // Fallback if pwa-512 doesn't resolve
-                e.target.src = "/logo-original.png";
+                e.target.src = "/pwa-512x512.png";
               }}
             />
           </div>
