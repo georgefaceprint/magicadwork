@@ -12,6 +12,7 @@ export default function LeadsViewer() {
     const term = search.toLowerCase();
     return (
       lead.name.toLowerCase().includes(term) ||
+      (lead.phone && lead.phone.toLowerCase().includes(term)) ||
       lead.company.toLowerCase().includes(term) ||
       lead.location.toLowerCase().includes(term) ||
       lead.equipment.toLowerCase().includes(term)
@@ -22,6 +23,7 @@ export default function LeadsViewer() {
     const leadText = `--- Magic Adwork Chat Lead ---
 Date Captured: ${new Date(lead.date).toLocaleDateString()}
 Contact Name: ${lead.name}
+Phone Number: ${lead.phone || 'N/A'}
 Company Name: ${lead.company}
 Location: ${lead.location}
 Equipment Owned: ${lead.equipment}
@@ -37,10 +39,10 @@ Last Active: ${new Date(lead.lastActive).toLocaleString()}
   const handleExportCSV = () => {
     if (chatLeads.length === 0) return;
     
-    const headers = 'Date,Name,Company,Location,Equipment,Last Active\n';
+    const headers = 'Date,Name,Phone,Company,Location,Equipment,Last Active\n';
     const rows = chatLeads.map(l => {
       const escape = (str) => `"${(str || '').replace(/"/g, '""')}"`;
-      return `${escape(new Date(l.date).toLocaleDateString())},${escape(l.name)},${escape(l.company)},${escape(l.location)},${escape(l.equipment)},${escape(new Date(l.lastActive).toLocaleString())}`;
+      return `${escape(new Date(l.date).toLocaleDateString())},${escape(l.name)},${escape(l.phone || '')},${escape(l.company)},${escape(l.location)},${escape(l.equipment)},${escape(new Date(l.lastActive).toLocaleString())}`;
     }).join('\n');
     
     const blob = new Blob([headers + rows], { type: 'text/csv;charset=utf-8;' });
@@ -131,6 +133,9 @@ Last Active: ${new Date(lead.lastActive).toLocaleString()}
                   
                   <td style={{ padding: '16px 20px', fontWeight: '700', color: 'var(--text-primary)' }}>
                     {lead.name}
+                    <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: 'normal', color: 'var(--cmyk-cyan)', marginTop: '2px' }}>
+                      {lead.phone || 'No Phone'}
+                    </span>
                   </td>
                   
                   <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>
@@ -219,10 +224,14 @@ Last Active: ${new Date(lead.lastActive).toLocaleString()}
                 <span style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-primary)' }}>{selectedLead.name}</span>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <span style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Company Name</span>
                   <span style={{ fontSize: '0.95rem', fontWeight: '600' }}>{selectedLead.company}</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Phone Number</span>
+                  <span style={{ fontSize: '0.95rem', fontWeight: '600', color: 'var(--cmyk-cyan)' }}>{selectedLead.phone || 'N/A'}</span>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <span style={{ fontSize: '0.7rem', fontWeight: '800', textTransform: 'uppercase', color: 'var(--text-muted)' }}>Location (City/Sub)</span>

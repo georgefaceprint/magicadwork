@@ -58,6 +58,7 @@ export default function Chatbot() {
   const [wizardData, setWizardData] = useState({
     name: '',
     company: '',
+    phone: '',
     equipment: 'Mimaki JV33',
     customEquipment: '',
     country: 'South Africa',
@@ -101,9 +102,10 @@ export default function Chatbot() {
 
           // Build custom WhatsApp link
           const company = parsed.company || 'Unknown Company';
+          const phone = parsed.phone || 'Unknown Phone';
           const locationStr = parsed.location || 'Unknown Location';
           const machineStr = parsed.equipment || 'Printer';
-          const prefilledText = `Hi Magic Adwork, my name is ${name} from ${company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
+          const prefilledText = `Hi Magic Adwork, my name is ${name} (Phone: ${phone}) from ${company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
           setWhatsappLink(`https://wa.me/27605889483?text=${encodeURIComponent(prefilledText)}`);
         }
       } catch (e) {
@@ -184,6 +186,7 @@ export default function Chatbot() {
     const leadInfo = {
       name: wizardData.name,
       company: wizardData.company,
+      phone: wizardData.phone,
       location: locationStr,
       equipment: machineStr
     };
@@ -192,7 +195,7 @@ export default function Chatbot() {
     updateChatLead(sessionId, leadInfo);
 
     // Build customized WhatsApp URL
-    const prefilledText = `Hi Magic Adwork, my name is ${leadInfo.name} from ${leadInfo.company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
+    const prefilledText = `Hi Magic Adwork, my name is ${leadInfo.name} (Phone: ${leadInfo.phone}) from ${leadInfo.company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
     const encoded = encodeURIComponent(prefilledText);
     const customUrl = `https://wa.me/27605889483?text=${encoded}`;
     
@@ -205,7 +208,7 @@ export default function Chatbot() {
         ...prev,
         { 
           role: 'model', 
-          text: `Thank you, ${leadInfo.name}! I've verified your profile: ${leadInfo.equipment} at ${leadInfo.company} (${locationStr}). If you want to connect directly with our active support desk, please [Click here to continue on WhatsApp](${customUrl}) or click the green button above!` 
+          text: `Thank you, ${leadInfo.name}! I've verified your profile: ${leadInfo.equipment} at ${leadInfo.company} (${locationStr}), contact phone ${leadInfo.phone}. If you want to connect directly with our active support desk, please [Click here to continue on WhatsApp](${customUrl}) or click the green button above!` 
         }
       ]);
       setShowWizard(false);
@@ -350,9 +353,10 @@ export default function Chatbot() {
                     setMessages([{ role: 'model', text: personalizedGreeting }]);
                     
                     const company = leadProfile.company || 'Unknown Company';
+                    const phone = leadProfile.phone || 'Unknown Phone';
                     const locationStr = leadProfile.location || 'Unknown Location';
                     const machineStr = leadProfile.equipment || 'Printer';
-                    const prefilledText = `Hi Magic Adwork, my name is ${name} from ${company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
+                    const prefilledText = `Hi Magic Adwork, my name is ${name} (Phone: ${phone}) from ${company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
                     setWhatsappLink(`https://wa.me/27605889483?text=${encodeURIComponent(prefilledText)}`);
                   } else {
                     setMessages([initialMessage]);
@@ -361,6 +365,7 @@ export default function Chatbot() {
                     setWizardData({
                       name: '',
                       company: '',
+                      phone: '',
                       equipment: 'Mimaki JV33',
                       customEquipment: '',
                       country: 'South Africa',
@@ -483,12 +488,25 @@ export default function Chatbot() {
                         />
                       </div>
 
+                      <div>
+                        <label className="form-label" style={{ fontSize: '0.65rem' }}>Phone Number</label>
+                        <input
+                          type="tel"
+                          value={wizardData.phone}
+                          onChange={(e) => setWizardData(prev => ({ ...prev, phone: e.target.value }))}
+                          placeholder="e.g. +27 76 476 2046"
+                          className="form-input"
+                          style={{ padding: '8px 12px', fontSize: '0.85rem' }}
+                          required
+                        />
+                      </div>
+
                       <button
                         type="button"
-                        disabled={!wizardData.name.trim() || !wizardData.company.trim()}
+                        disabled={!wizardData.name.trim() || !wizardData.company.trim() || !wizardData.phone.trim()}
                         onClick={() => setWizardStep(2)}
                         className="btn-primary"
-                        style={{ padding: '8px 16px', fontSize: '0.8rem', marginTop: '4px', alignSelf: 'flex-end', opacity: (!wizardData.name.trim() || !wizardData.company.trim()) ? 0.5 : 1 }}
+                        style={{ padding: '8px 16px', fontSize: '0.8rem', marginTop: '4px', alignSelf: 'flex-end', opacity: (!wizardData.name.trim() || !wizardData.company.trim() || !wizardData.phone.trim()) ? 0.5 : 1 }}
                       >
                         Next <ChevronRight size={14} />
                       </button>
