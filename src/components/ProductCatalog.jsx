@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import { Search, ShoppingBag, Eye, X, Check, ArrowRight, Trash2, ShieldAlert } from 'lucide-react';
 
 export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab }) {
-  const { products, formatPrice, addToCart, cart, updateCartQty, removeFromCart, getCartSubtotal } = useApp();
+  const { products, formatPrice, addToCart, cart, updateCartQty, removeFromCart, getCartSubtotal, categories } = useApp();
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -31,7 +31,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
     });
   }, [products, search, selectedCategory, selectedSubcategory]);
 
-  const categories = ['All', 'Machines & Equipment', 'Inks & Powders', 'Roland Spare Parts', 'Mimaki Spare Parts'];
+  const catalogCategories = ['All', ...categories];
 
   // Get unique subcategories for active main category (except All)
   const availableSubcategories = selectedCategory === 'All' 
@@ -114,7 +114,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
       );
     }
 
-    const isInk = product.category === 'Inks & Powders';
+    const isInk = product.category === 'Inks';
     const isMachine = product.category === 'Machines & Equipment';
     
     // Determine color code for inks
@@ -464,7 +464,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
       }}>
         {/* Category Filters */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-          {categories.map(cat => (
+          {catalogCategories.map(cat => (
             <button
               key={cat}
               onClick={() => startTransition(() => setSelectedCategory(cat))}
@@ -520,7 +520,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
           alignItems: 'center'
         }} className="animate-fade-in">
           <span style={{ fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', color: 'var(--text-muted)', marginRight: '8px' }}>
-            Filter {selectedCategory === 'Inks & Powders' ? 'Inks' : 'Parts'}:
+            Filter {selectedCategory === 'Inks' ? 'Inks' : 'Parts'}:
           </span>
           {availableSubcategories.map(sub => (
             <button
@@ -768,7 +768,7 @@ export default function ProductCatalog({ cartOpen, toggleCartOpen, setActiveTab 
                       width: '36px',
                       height: '36px',
                       borderRadius: '4px',
-                      backgroundColor: item.product.category === 'Inks & Powders' ? 'var(--cmyk-magenta)' : 'var(--cmyk-cyan)',
+                      backgroundColor: item.product.category === 'Inks' ? 'var(--cmyk-magenta)' : 'var(--cmyk-cyan)',
                       opacity: '0.2',
                       flexShrink: '0'
                     }} />

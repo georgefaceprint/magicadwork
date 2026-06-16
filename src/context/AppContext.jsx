@@ -43,13 +43,73 @@ export const AppProvider = ({ children }) => {
     return saved ? JSON.parse(saved) : [];
   });
 
-  // Combine initial parsed Excel products with admin-added products
-  const [products, setProducts] = useState([...initialInventory]);
+  // Track edited and deleted base products
+  const [editedBaseProducts, setEditedBaseProducts] = useState(() => {
+    const saved = localStorage.getItem('magic_adwork_edited_base_products');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  // Categories list
+  const [categories, setCategories] = useState(() => {
+    const saved = localStorage.getItem('magic_adwork_categories');
+    return saved ? JSON.parse(saved) : ['Machines & Equipment', 'Inks', 'Roland Spare Parts', 'Mimaki Spare Parts'];
+  });
+
+  // Subcategories mapping
+  const [categorySubcategories, setCategorySubcategories] = useState(() => {
+    const saved = localStorage.getItem('magic_adwork_category_subcategories');
+    if (saved) return JSON.parse(saved);
+    
+    // Seed initial mapping from database
+    const mapping = {};
+    initialInventory.forEach(p => {
+      const cat = p.category === 'Inks & Powders' ? 'Inks' : p.category;
+      if (p.subcategory) {
+        if (!mapping[cat]) mapping[cat] = [];
+        if (!mapping[cat].includes(p.subcategory)) {
+          mapping[cat].push(p.subcategory);
+        }
+      }
+    });
+    return mapping;
+  });
+
+  // Combine initial parsed Excel products with admin-added and edited products
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Merge base inventory with custom products
-    setProducts([...initialInventory, ...customProducts]);
-  }, [customProducts]);
+    const base = initialInventory.map(p => {
+      let item = { ...p };
+      if (item.category === 'Inks & Powders') {
+        item.category = 'Inks';
+      }
+      if (editedBaseProducts[item.id]) {
+        item = { ...item, ...editedBaseProducts[item.id] };
+      }
+      return item;
+    }).filter(item => !item.isDeleted);
+    
+    const custom = customProducts.map(p => {
+      let item = { ...p };
+      if (item.category === 'Inks & Powders') {
+        item.category = 'Inks';
+      }
+      if (editedBaseProducts[item.id]) {
+        item = { ...item, ...editedBaseProducts[item.id] };
+      }
+      return item;
+    }).filter(item => !item.isDeleted);
+    
+    setProducts([...base, ...custom]);
+  }, [customProducts, editedBaseProducts]);
+
+  useEffect(() => {
+    localStorage.setItem('magic_adwork_categories', JSON.stringify(categories));
+  }, [categories]);
+
+  useEffect(() => {
+    localStorage.setItem('magic_adwork_category_subcategories', JSON.stringify(categorySubcategories));
+  }, [categorySubcategories]);
 
   const addProduct = (newProduct) => {
     const updated = [newProduct, ...customProducts];
@@ -59,6 +119,82 @@ export const AppProvider = ({ children }) => {
       "Product Added to Catalog",
       `${newProduct.name} is now available in ${newProduct.category}!`
     );
+  };
+
+  const editProduct = (productId, updatedProduct) => {
+    const isCustom = customProducts.some(p => p.id === productId);
+    if (isCustom) {
+      const updated = customProducts.map(p => p.id === productId ? { ...p, ...updatedProduct } : p);
+      setCustomProducts(updated);
+      localStorage.setItem('magic_adwork_custom_products', JSON.stringify(updated));
+    } else {
+      const updated = {
+        ...editedBaseProducts,
+        [productId]: { ...editedBaseProducts[productId], ...updatedProduct }
+      };
+      setEditedBaseProducts(updated);
+      localStorage.setItem('magic_adwork_edited_base_products', JSON.stringify(updated));
+    }
+    sendNotification("Product Updated", `${updatedProduct.name} has been updated.`);
+  };
+
+  const deleteProduct = (productId) => {
+    const isCustom = customProducts.some(p => p.id === productId);
+    if (isCustom) {
+      const updated = customProducts.filter(p => p.id !== productId);
+      setCustomProducts(updated);
+      localStorage.setItem('magic_adwork_custom_products', JSON.stringify(updated));
+    } else {
+      const updated = {
+        ...editedBaseProducts,
+        [productId]: { ...editedBaseProducts[productId], isDeleted: true }
+      };
+      setEditedBaseProducts(updated);
+      localStorage.setItem('magic_adwork_edited_base_products', JSON.stringify(updated));
+    }
+    sendNotification("Product Removed", "The product has been removed from the catalog.");
+  };
+
+  const addCategory = (name) => {
+    if (!categories.includes(name)) {
+      setCategories([...categories, name]);
+      setCategorySubcategories(prev => ({
+        ...prev,
+        [name]: prev[name] || []
+      }));
+      sendNotification("Category Added", `Category "${name}" has been created.`);
+    }
+  };
+
+  const deleteCategory = (name) => {
+    setCategories(categories.filter(c => c !== name));
+    setCategorySubcategories(prev => {
+      const updated = { ...prev };
+      delete updated[name];
+      return updated;
+    });
+    sendNotification("Category Removed", `Category "${name}" has been deleted.`);
+  };
+
+  const addSubcategory = (category, name) => {
+    setCategorySubcategories(prev => {
+      const current = prev[category] || [];
+      if (!current.includes(name)) {
+        const updated = [...current, name];
+        sendNotification("Subcategory Added", `Subcategory "${name}" added to "${category}".`);
+        return { ...prev, [category]: updated };
+      }
+      return prev;
+    });
+  };
+
+  const deleteSubcategory = (category, name) => {
+    setCategorySubcategories(prev => {
+      const current = prev[category] || [];
+      const updated = current.filter(s => s !== name);
+      sendNotification("Subcategory Removed", `Subcategory "${name}" removed from "${category}".`);
+      return { ...prev, [category]: updated };
+    });
   };
 
   // --- Currency & Forex state ---
@@ -180,6 +316,63 @@ export const AppProvider = ({ children }) => {
       "Booking Confirmed!",
       `Service booked for ${booking.suburb} on ${booking.date}. Ref: ${booking.id || 'JHB'}`
     );
+  };
+
+  // --- Chat Leads State ---
+  const [chatLeads, setChatLeads] = useState(() => {
+    const saved = localStorage.getItem('magic_adwork_chat_leads');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('magic_adwork_chat_leads', JSON.stringify(chatLeads));
+  }, [chatLeads]);
+
+  const updateChatLead = (sessionId, extractedInfo) => {
+    if (!extractedInfo) return;
+    
+    // Filter out fields that are null/undefined or empty string
+    const validInfo = {};
+    Object.keys(extractedInfo).forEach(key => {
+      const val = extractedInfo[key];
+      if (val !== null && val !== undefined && val !== '' && String(val).toLowerCase() !== 'null') {
+        validInfo[key] = val;
+      }
+    });
+
+    if (Object.keys(validInfo).length === 0) return;
+
+    setChatLeads(prevLeads => {
+      const existingLeadIndex = prevLeads.findIndex(lead => lead.sessionId === sessionId);
+      if (existingLeadIndex > -1) {
+        // Merge the new data into the existing lead record
+        const updatedLeads = [...prevLeads];
+        updatedLeads[existingLeadIndex] = {
+          ...updatedLeads[existingLeadIndex],
+          ...validInfo,
+          lastActive: new Date().toISOString()
+        };
+        return updatedLeads;
+      } else {
+        // Create a new lead record
+        const newLead = {
+          id: `lead-${Date.now()}`,
+          sessionId,
+          date: new Date().toISOString(),
+          lastActive: new Date().toISOString(),
+          name: validInfo.name || 'Anonymous Visitor',
+          company: validInfo.company || 'Unknown Company',
+          location: validInfo.location || 'Unknown Location',
+          equipment: validInfo.equipment || 'Unknown Equipment',
+          ...validInfo
+        };
+        return [newLead, ...prevLeads];
+      }
+    });
+  };
+
+  const deleteChatLead = (leadId) => {
+    setChatLeads(prevLeads => prevLeads.filter(lead => lead.id !== leadId));
   };
 
   // --- PWA Installation & Browser Notification States ---
@@ -358,6 +551,14 @@ export const AppProvider = ({ children }) => {
       value={{
         products,
         addProduct,
+        editProduct,
+        deleteProduct,
+        categories,
+        categorySubcategories,
+        addCategory,
+        deleteCategory,
+        addSubcategory,
+        deleteSubcategory,
         currency,
         setCurrency,
         usdToZarRate,
@@ -373,6 +574,9 @@ export const AppProvider = ({ children }) => {
         getCartWeight,
         bookings,
         addBooking,
+        chatLeads,
+        updateChatLead,
+        deleteChatLead,
         theme,
         toggleTheme,
         deferredPrompt,

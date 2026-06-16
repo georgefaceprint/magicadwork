@@ -248,7 +248,7 @@ function AppContent() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   <Phone size={14} style={{ color: 'var(--text-muted)' }} />
-                  <span>+27 11 421 6880 / +27 605 889 483</span>
+                  <span>+27 76 476 2046 / +27 83 756 4320</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   <Mail size={14} style={{ color: 'var(--text-muted)' }} />
@@ -265,7 +265,7 @@ function AppContent() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   <Phone size={14} style={{ color: 'var(--text-muted)' }} />
-                  <span>+27 11 421 6880 / +27 76 476 2046</span>
+                  <span>+27 76 476 2046 / +27 83 756 4320</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   <Mail size={14} style={{ color: 'var(--text-muted)' }} />
@@ -282,7 +282,11 @@ function AppContent() {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   <Phone size={14} style={{ color: 'var(--text-muted)' }} />
-                  <span>+263 775 095 846 / +263 719 872 924</span>
+                  <span>Office: +263 719 872 924</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                  <Phone size={14} style={{ color: 'var(--text-muted)' }} />
+                  <span>Tech Support: +263 77 509 5846</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   <Mail size={14} style={{ color: 'var(--text-muted)' }} />

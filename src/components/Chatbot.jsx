@@ -3,13 +3,16 @@ import { MessageSquare, X, Send, Bot, User, Loader2, RefreshCw, MessageCircle } 
 import { useApp } from '../context/AppContext';
 
 export default function Chatbot() {
-  const { products, jhbSuburbs } = useApp(); // Gets the full catalog and suburbs list
+  const { products, jhbSuburbs, updateChatLead } = useApp(); // Gets the full catalog and suburbs list, and the updateChatLead function
   const [isOpen, setIsOpen] = useState(false);
   const initialMessage = { role: 'model', text: "Hi! I'm Tekle, Magic Adwork's AI technician. How can I help you with Mimaki, Roland, or inks today?" };
   const [messages, setMessages] = useState([initialMessage]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // Generate unique session ID for the current chat session
+  const [sessionId] = useState(() => `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`);
 
   // Auto-open chatbot after 4 seconds to welcome users
   useEffect(() => {
@@ -63,6 +66,10 @@ export default function Chatbot() {
       const data = await res.json();
       
       setMessages(prev => [...prev, { role: 'model', text: data.response }]);
+      
+      if (data.extractedInfo) {
+        updateChatLead(sessionId, data.extractedInfo);
+      }
     } catch (error) {
       console.error('Chat error:', error);
       setMessages(prev => [...prev, { role: 'model', text: "Sorry, I'm having trouble connecting to my servers right now. Please try again later!" }]);
@@ -207,6 +214,34 @@ export default function Chatbot() {
               </button>
             </div>
           </div>
+
+          {/* WhatsApp Sticky Action Bar */}
+          <a 
+            href="https://wa.me/27605889483?text=Hi%20Magic%20Adwork%2C%20I%20would%20like%20to%20chat%20with%20a%20technician%20on%20WhatsApp!"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              padding: '10px 16px',
+              background: '#25D366',
+              color: '#000000',
+              fontWeight: '800',
+              fontSize: '0.85rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              textAlign: 'center',
+              textDecoration: 'none',
+              transition: 'background-color var(--transition-fast)',
+              borderBottom: '1px solid rgba(255,255,255,0.1)'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#20ba59'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#25D366'}
+          >
+            <MessageCircle size={16} /> Chat on WhatsApp
+          </a>
 
           {/* Messages Area */}
           <div style={{

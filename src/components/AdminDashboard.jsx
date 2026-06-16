@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { ShieldAlert, Users, Package, ShoppingBag, BarChart3, Settings, ArrowLeft } from 'lucide-react';
+import { ShieldAlert, Users, Package, ShoppingBag, BarChart3, Settings, ArrowLeft, MessageSquare } from 'lucide-react';
 import InventoryManager from './admin/InventoryManager';
 import BookingsViewer from './admin/BookingsViewer';
 import StoreSettings from './admin/StoreSettings';
+import LeadsViewer from './admin/LeadsViewer';
 
 export default function AdminDashboard({ setActiveTab }) {
-  const { currentUser } = useApp();
+  const { currentUser, chatLeads, products } = useApp();
   const [activeAdminPanel, setActiveAdminPanel] = useState('overview');
 
   // Double check authorization
@@ -33,8 +34,8 @@ export default function AdminDashboard({ setActiveTab }) {
   const stats = [
     { label: 'Total Orders', value: '0', icon: ShoppingBag, color: 'var(--cmyk-cyan)', class: 'cmyk-cyan-glow' },
     { label: 'Total Revenue', value: 'R 0.00', icon: BarChart3, color: 'var(--cmyk-magenta)', class: 'cmyk-magenta-glow' },
-    { label: 'Total Users', value: '1', icon: Users, color: 'var(--cmyk-yellow)', class: 'cmyk-yellow-glow' },
-    { label: 'Inventory Items', value: '192', icon: Package, color: 'var(--text-primary)', class: 'glass-panel' },
+    { label: 'Chat Leads', value: chatLeads ? chatLeads.length.toString() : '0', icon: MessageSquare, color: 'var(--cmyk-yellow)', class: 'cmyk-yellow-glow' },
+    { label: 'Inventory Items', value: products ? products.length.toString() : '192', icon: Package, color: 'var(--text-primary)', class: 'glass-panel' },
   ];
 
   return (
@@ -104,7 +105,7 @@ export default function AdminDashboard({ setActiveTab }) {
                 Quick Actions
               </h2>
               
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
                 <button onClick={() => setActiveAdminPanel('inventory')} className="glass-panel cmyk-cyan-glow" style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'transparent', cursor: 'pointer' }}>
                   <span style={{ color: 'var(--cmyk-cyan)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.9rem' }}>Manage Inventory</span>
                   <Package size={20} color="var(--cmyk-cyan)" />
@@ -113,6 +114,11 @@ export default function AdminDashboard({ setActiveTab }) {
                 <button onClick={() => setActiveAdminPanel('bookings')} className="glass-panel cmyk-yellow-glow" style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'transparent', cursor: 'pointer' }}>
                   <span style={{ color: 'var(--cmyk-yellow)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.9rem' }}>Live Bookings</span>
                   <Users size={20} color="var(--cmyk-yellow)" />
+                </button>
+
+                <button onClick={() => setActiveAdminPanel('leads')} className="glass-panel cmyk-magenta-glow" style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'transparent', cursor: 'pointer' }}>
+                  <span style={{ color: 'var(--cmyk-magenta)', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.9rem' }}>Chat Leads</span>
+                  <MessageSquare size={20} color="var(--cmyk-magenta)" />
                 </button>
                 
                 <button onClick={() => setActiveAdminPanel('settings')} className="glass-panel" style={{ width: '100%', padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'transparent', cursor: 'pointer' }}>
@@ -128,6 +134,7 @@ export default function AdminDashboard({ setActiveTab }) {
 
       {activeAdminPanel === 'inventory' && <InventoryManager />}
       {activeAdminPanel === 'bookings' && <BookingsViewer />}
+      {activeAdminPanel === 'leads' && <LeadsViewer />}
       {activeAdminPanel === 'settings' && <StoreSettings />}
 
     </div>
