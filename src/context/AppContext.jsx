@@ -347,11 +347,13 @@ export const AppProvider = ({ children }) => {
       if (existingLeadIndex > -1) {
         // Merge the new data into the existing lead record
         const updatedLeads = [...prevLeads];
-        updatedLeads[existingLeadIndex] = {
+        const updatedLead = {
           ...updatedLeads[existingLeadIndex],
           ...validInfo,
           lastActive: new Date().toISOString()
         };
+        updatedLeads[existingLeadIndex] = updatedLead;
+        localStorage.setItem('magic_adwork_user_profile', JSON.stringify(updatedLead));
         return updatedLeads;
       } else {
         // Create a new lead record
@@ -366,6 +368,7 @@ export const AppProvider = ({ children }) => {
           equipment: validInfo.equipment || 'Unknown Equipment',
           ...validInfo
         };
+        localStorage.setItem('magic_adwork_user_profile', JSON.stringify(newLead));
         return [newLead, ...prevLeads];
       }
     });

@@ -1,6 +1,206 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { Package, PlusCircle, CheckCircle, Trash2, Edit2, Search, X, Tag, Plus, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+const compressImage = (file) => {
+  return new Promise((resolve, reject) => {
+    if (file.size > 2 * 1024 * 1024) {
+      reject(new Error('Image exceeds 2MB limit. Please select a smaller file.'));
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        const maxDim = 600;
+
+        if (width > maxDim || height > maxDim) {
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Compress to JPEG with quality 0.6
+        const compressedBase64 = canvas.toDataURL('image/jpeg', 0.6);
+        
+        // Calculate sizes
+        const originalKb = (file.size / 1024).toFixed(1);
+        
+        // Base64 size estimation
+        const compressedKb = ((compressedBase64.length * 0.75) / 1024).toFixed(1);
+        const percent = Math.round((1 - (compressedKb / originalKb)) * 100);
+
+        resolve({
+          base64: compressedBase64,
+          originalSize: `${originalKb} KB`,
+          compressedSize: `${compressedKb} KB`,
+          saving: percent > 0 ? `${percent}%` : '0%'
+        });
+      };
+      img.onerror = () => reject(new Error('Failed to load image.'));
+      img.src = e.target.result;
+    };
+    reader.onerror = () => reject(new Error('Failed to read file.'));
+    reader.readAsDataURL(file);
+  });
+};
+
+function ImageUploadField({ value, onChange, label = "Product Image", id }) {
+  const [dragActive, setDragActive] = useState(false);
+  const [info, setInfo] = useState(null);
+  const [error, setError] = useState('');
+
+  const handleFile = async (file) => {
+    if (!file) return;
+    setError('');
+    setInfo(null);
+    try {
+      const result = await compressImage(file);
+      onChange(result.base64);
+      setInfo({
+        original: result.originalSize,
+        compressed: result.compressedSize,
+        saving: result.saving
+      });
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFile(e.dataTransfer.files[0]);
+    }
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      handleFile(e.target.files[0]);
+    }
+  };
+
+  const handleRemove = () => {
+    onChange('');
+    setInfo(null);
+    setError('');
+  };
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <label className="form-label">{label}</label>
+      
+      <div 
+        onDragEnter={handleDrag}
+        onDragOver={handleDrag}
+        onDragLeave={handleDrag}
+        onDrop={handleDrop}
+        style={{
+          border: '2px dashed',
+          borderColor: dragActive ? 'var(--cmyk-cyan)' : 'var(--border-color)',
+          borderRadius: 'var(--radius-sm)',
+          padding: '20px',
+          textAlign: 'center',
+          backgroundColor: dragActive ? 'rgba(0, 240, 255, 0.05)' : 'var(--bg-input)',
+          cursor: 'pointer',
+          transition: 'all var(--transition-fast)',
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '140px'
+        }}
+        onClick={() => document.getElementById(id).click()}
+      >
+        <input 
+          type="file" 
+          id={id}
+          accept="image/*"
+          style={{ display: 'none' }}
+          onChange={handleFileChange}
+        />
+
+        {value ? (
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap', width: '100%', justifyContent: 'center' }} onClick={(e) => e.stopPropagation()}>
+            <div style={{ position: 'relative', width: '80px', height: '80px', borderRadius: '6px', overflow: 'hidden', border: '1px solid var(--border-color)', background: 'rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src={value} alt="Preview" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+            </div>
+            
+            <div style={{ textAlign: 'left', flex: 1, minWidth: '180px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#10b981', fontWeight: '800', fontSize: '0.85rem', textTransform: 'uppercase' }}>
+                <CheckCircle size={14} /> Ready for Catalog
+              </div>
+              
+              {info ? (
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                  <span>Original: {info.original}</span>
+                  <span style={{ margin: '0 6px' }}>&rarr;</span>
+                  <strong style={{ color: 'var(--text-primary)' }}>Compressed: {info.compressed}</strong>
+                  <span style={{ marginLeft: '8px', color: 'var(--cmyk-cyan)', fontWeight: 'bold' }}>({info.saving} saving)</span>
+                </div>
+              ) : (
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                  Image selected.
+                </div>
+              )}
+
+              <button 
+                type="button" 
+                onClick={handleRemove}
+                className="btn-secondary"
+                style={{ padding: '4px 10px', fontSize: '0.75rem', marginTop: '8px', border: '1px solid var(--cmyk-magenta)', color: 'var(--cmyk-magenta)', background: 'none', height: 'auto', display: 'inline-flex', alignItems: 'center' }}
+              >
+                Remove Image
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+            <PlusCircle size={28} style={{ color: dragActive ? 'var(--cmyk-cyan)' : 'var(--text-muted)', opacity: 0.8 }} />
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '600', margin: 0 }}>
+              Drag &amp; drop product image here, or <span style={{ color: 'var(--cmyk-cyan)' }}>browse</span>
+            </p>
+            <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', margin: 0 }}>
+              Supports JPG, PNG, WEBP (Max 2MB). Auto-compresses for speed.
+            </p>
+          </div>
+        )}
+      </div>
+      
+      {error && (
+        <div style={{ color: 'var(--cmyk-magenta)', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 'bold', marginTop: '2px' }}>
+          <AlertCircle size={12} /> {error}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function InventoryManager() {
   const { 
@@ -534,13 +734,11 @@ export default function InventoryManager() {
             </div>
 
             <div>
-              <label className="form-label">Image URL</label>
-              <input 
-                type="url" 
+              <ImageUploadField 
+                id="add-product-image"
                 value={addForm.image}
-                onChange={(e) => setAddForm(prev => ({ ...prev, image: e.target.value }))}
-                className="form-input" 
-                placeholder="https://example.com/product-image.png" 
+                onChange={(base64) => setAddForm(prev => ({ ...prev, image: base64 }))}
+                label="Product Image"
               />
             </div>
 
@@ -816,12 +1014,11 @@ export default function InventoryManager() {
               </div>
 
               <div>
-                <label className="form-label">Image URL</label>
-                <input
-                  type="url"
+                <ImageUploadField 
+                  id="edit-product-image"
                   value={editForm.image}
-                  onChange={(e) => setEditForm(prev => ({ ...prev, image: e.target.value }))}
-                  className="form-input"
+                  onChange={(base64) => setEditForm(prev => ({ ...prev, image: base64 }))}
+                  label="Product Image"
                 />
               </div>
 

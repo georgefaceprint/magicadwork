@@ -41,7 +41,7 @@ const SA_PROVINCES = [
 ];
 
 export default function Chatbot() {
-  const { products, jhbSuburbs, updateChatLead } = useApp();
+  const { products, jhbSuburbs, updateChatLead, chatLeads } = useApp();
   const [isOpen, setIsOpen] = useState(false);
   const initialMessage = { role: 'model', text: "Hi! I'm Tekle, Magic Adwork's AI technician. How can I help you with Mimaki, Roland, or inks today?" };
   const [messages, setMessages] = useState([initialMessage]);
@@ -77,6 +77,40 @@ export default function Chatbot() {
     }, 4000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Load returning lead on mount or when chatLeads updates
+  useEffect(() => {
+    const saved = localStorage.getItem('magic_adwork_user_profile');
+    if (saved && chatLeads && chatLeads.length > 0) {
+      try {
+        const parsed = JSON.parse(saved);
+        const exists = chatLeads.some(l => l.id === parsed.id || (l.name === parsed.name && l.company === parsed.company));
+        if (exists) {
+          setShowWizard(false);
+          
+          // Personalize initial message if messages list is just the default greeting
+          const name = parsed.name || 'Faceprint';
+          const personalizedGreeting = `Hi ${name}! Welcome back. I'm Tekle, Magic Adwork's AI technician. How can I help you with Mimaki, Roland, or inks today?`;
+          
+          setMessages(prev => {
+            if (prev.length === 1 && (prev[0].text.startsWith("Hi! I'm Tekle") || prev[0].text.startsWith("Hi "))) {
+              return [{ role: 'model', text: personalizedGreeting }];
+            }
+            return prev;
+          });
+
+          // Build custom WhatsApp link
+          const company = parsed.company || 'Unknown Company';
+          const locationStr = parsed.location || 'Unknown Location';
+          const machineStr = parsed.equipment || 'Printer';
+          const prefilledText = `Hi Magic Adwork, my name is ${name} from ${company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
+          setWhatsappLink(`https://wa.me/27605889483?text=${encodeURIComponent(prefilledText)}`);
+        }
+      } catch (e) {
+        console.error("Error reading saved profile:", e);
+      }
+    }
+  }, [chatLeads]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -298,22 +332,46 @@ export default function Chatbot() {
               </a>
               <button 
                 onClick={() => { 
-                  setMessages([initialMessage]); 
-                  setInput(''); 
-                  setShowWizard(true);
-                  setWizardStep(1);
-                  setWizardData({
-                    name: '',
-                    company: '',
-                    equipment: 'Mimaki JV33',
-                    customEquipment: '',
-                    country: 'South Africa',
-                    province: 'Gauteng',
-                    suburb: 'Benoni',
-                    customLocation: '',
-                    zimTown: 'Harare'
-                  });
-                  setWhatsappLink('https://wa.me/27605889483?text=Hi%20Magic%20Adwork%2C%20I%20need%20assistance!');
+                  const saved = localStorage.getItem('magic_adwork_user_profile');
+                  let isLead = false;
+                  let name = '';
+                  let leadProfile = null;
+                  if (saved && chatLeads) {
+                    try {
+                      leadProfile = JSON.parse(saved);
+                      isLead = chatLeads.some(l => l.id === leadProfile.id || (l.name === leadProfile.name && l.company === leadProfile.company));
+                      if (isLead) name = leadProfile.name;
+                    } catch (e) {}
+                  }
+
+                  if (isLead && leadProfile) {
+                    setShowWizard(false);
+                    const personalizedGreeting = `Hi ${name}! Welcome back. I'm Tekle, Magic Adwork's AI technician. How can I help you with Mimaki, Roland, or inks today?`;
+                    setMessages([{ role: 'model', text: personalizedGreeting }]);
+                    
+                    const company = leadProfile.company || 'Unknown Company';
+                    const locationStr = leadProfile.location || 'Unknown Location';
+                    const machineStr = leadProfile.equipment || 'Printer';
+                    const prefilledText = `Hi Magic Adwork, my name is ${name} from ${company} (${locationStr}). We own a ${machineStr} and require technician assistance.`;
+                    setWhatsappLink(`https://wa.me/27605889483?text=${encodeURIComponent(prefilledText)}`);
+                  } else {
+                    setMessages([initialMessage]);
+                    setShowWizard(true);
+                    setWizardStep(1);
+                    setWizardData({
+                      name: '',
+                      company: '',
+                      equipment: 'Mimaki JV33',
+                      customEquipment: '',
+                      country: 'South Africa',
+                      province: 'Gauteng',
+                      suburb: 'Benoni',
+                      customLocation: '',
+                      zimTown: 'Harare'
+                    });
+                    setWhatsappLink('https://wa.me/27605889483?text=Hi%20Magic%20Adwork%2C%20I%20need%20assistance!');
+                  }
+                  setInput('');
                 }}
                 title="Reset Conversation"
                 style={{
