@@ -111,6 +111,34 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('magic_adwork_category_subcategories', JSON.stringify(categorySubcategories));
   }, [categorySubcategories]);
 
+  // Synchronize localStorage changes across tabs in real-time
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+      if (e.key === 'magic_adwork_chat_leads') {
+        try {
+          setChatLeads(e.newValue ? JSON.parse(e.newValue) : []);
+        } catch (err) {}
+      }
+      if (e.key === 'magic_adwork_custom_products') {
+        try {
+          setCustomProducts(e.newValue ? JSON.parse(e.newValue) : []);
+        } catch (err) {}
+      }
+      if (e.key === 'magic_adwork_categories') {
+        try {
+          setCategories(e.newValue ? JSON.parse(e.newValue) : []);
+        } catch (err) {}
+      }
+      if (e.key === 'magic_adwork_category_subcategories') {
+        try {
+          setCategorySubcategories(e.newValue ? JSON.parse(e.newValue) : {});
+        } catch (err) {}
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
   const addProduct = (newProduct) => {
     const updated = [newProduct, ...customProducts];
     setCustomProducts(updated);
